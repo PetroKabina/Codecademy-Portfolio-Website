@@ -6,10 +6,12 @@ Typically, a portfolio website will have a main page that features different pro
 
 Occasionally, there are additional pages for each project, detailing the technology used.
 # Project links
-* [Netlify](https://app.netlify.com/signup/start)
-* [GitHub repos](https://github.com/PetroKabina?tab=repositories)
-* [Gist](https://gist.github.com/PetroKabina)
-* [Creately](https://app.creately.com/d/VauS7vMUZ9x/edit)
+## Site wireframe: [Creately](https://app.creately.com/d/VauS7vMUZ9x/edit)
+## Project deployment platform: [Netlify](https://app.netlify.com/signup/start)
+## [GitHub repos](https://github.com/PetroKabina?tab=repositories)
+## [Gist](https://gist.github.com/PetroKabina)
+## Font creator: [FontStruct](https://fontstruct.com/)
+## AI image creator: [Midjourney](https://www.midjourney.com/)
 # Project Objectives:
 * Build a website using HTML, CSS
 * Add at least one interactive feature using JavaScript
