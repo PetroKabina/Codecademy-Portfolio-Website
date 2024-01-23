@@ -2,3 +2,91 @@
     font-family: 'warmin';
     src: './fonts/warmin.ttf';
 }
+
+body {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 3px rgb(0, 109, 109) solid;
+    background-color: darkcyan;
+}
+
+header > nav > img {
+    position: absolute;
+    height: 100px;
+    top: 5px;
+}
+
+header > nav > menu {
+    position: relative;
+}
+
+header > nav > menu > ul > li > .menu_item {
+    position: relative;
+}
+
+main {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 300px);
+    overflow: scroll;
+    /*min-height: 500px;*/
+    top: 150px;
+    left: 0;
+    border: 3px rgb(126, 126, 38) solid;
+    background-color: rgb(185, 185, 57);
+}
+
+main > nav > .breadcrumb {
+
+}
+
+main > .content > .content_letter {
+    min-width: 500px;
+    &::after {
+        content: "";
+        position: relative;
+        margin: 0 auto;
+        height: calc(100vh - 300px);
+        border-style: solid;
+        border-width: .5rem;
+        border-color: teal teal silver silver;
+    }
+}
+
+main > .content > p {
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 150px;
+    border: 3px rgb(0, 109, 109) solid;
+    background-color: darkcyan;
+}
+
+footer > menu {
+
+}
+
+footer > nav > menu > a.menu_item {
+
+}
+
+footer > nav > menu > section > ul::first-line { 
+    font-weight: bold;
+}
+
+footer > .date {
+
+}
