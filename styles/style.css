@@ -14,28 +14,34 @@ header {
     position: absolute;
     top: 0px;
     left: 0px;
-    border: 3px rgb(0, 109, 109) solid;
-    background-color: darkcyan;
+    border: 3px rgb(66, 103, 100) solid;
+    background-color: rgb(106, 163, 154);
 }
 
-header > nav {
-    display: flex;
+header nav section {
+    display: inline-flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-items:normal;
+    border: solid black;
 }
 
-header > nav > img {
-    position: absolute;
+header nav img {
     height: 80px;
     width: auto;
-    top: 15px;
-    left: 15px;
+    padding: 15px;
 }
 
-header > nav > menu {
-    position: relative;
+header .header_menu li {
+    display: inline-flex;
+}
+
+nav menu ul {
+   list-style: none;
 }
 
 header > nav > menu > ul > li > .menu_item {
-    position: relative;
+    
 }
 
 main {
@@ -46,26 +52,45 @@ main {
     /*min-height: 500px;*/
     top: 150px;
     left: 0;
-    border: 3px rgb(126, 126, 38) solid;
-    background-color: rgb(185, 185, 57);
+    border: 3px rgb(172, 124, 78) solid;
+    background-color: rgb(229, 219, 171);
 }
 
 main > nav > .breadcrumb {
 
 }
 
-main > .content > .content_letter {
-    min-width: 500px;
-    &::after {
+main > .content_letter {
+    position: relative;
+    height: 100vh;
+    min-width: 50vw;
+    width: 60%;
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+    &::before, &::after {
         content: "";
-        position: relative;
-        margin: 0 auto;
-        height: calc(100vh - 300px);
-        border-style: solid;
-        border-width: .5rem;
-        border-color: teal teal silver silver;
+        top: 0px;
+        left: 0px;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        transform-origin: 0 0;
+        border-left: solid 5vw transparent;
+        border-bottom: solid 5vw rgb(105, 158, 197);
     }
 }
+
+main > .content_letter > .content  {
+        content: "";
+        background-color: rgb(231, 234, 225);
+        width: 100%;
+        height: auto;
+        padding: 10vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
 main > .content > p {
 
