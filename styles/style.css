@@ -18,10 +18,16 @@ header {
     background-color: darkcyan;
 }
 
+header > nav {
+    display: flex;
+}
+
 header > nav > img {
     position: absolute;
-    height: 100px;
-    top: 5px;
+    height: 80px;
+    width: auto;
+    top: 15px;
+    left: 15px;
 }
 
 header > nav > menu {
