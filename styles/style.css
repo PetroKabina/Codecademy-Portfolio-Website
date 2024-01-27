@@ -1,8 +1,8 @@
 @font-face {
-    font-family: "warmin";
+    font-family: warmin;
     src: 
-        local("warmin")
-        url("/fonts/warmin.ttf") format("truetype");
+        /*local('warmin')*/
+        url('/fonts/warmin.ttf') format('truetype');
 }
 
 /* GENERAL FORMAT */
@@ -42,7 +42,7 @@ nav menu ul {
 /* SPECIFIC FORMAT */
 
 header {
-    font-family: "warmin", sans-serif;
+    font-family: warmin, sans-serif;
     grid-area: head;
     width: 100%;
     height: 250px;
