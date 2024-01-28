@@ -19,9 +19,9 @@ body {
     display: grid;
     row-gap: 0;
     grid-template:
-    "head" 20vh
+    "head" minmax(20vh, max-content)
     "main" 65vh
-    "foot" 15vh
+    "foot" minmax(15vh, max-content)
     / 100%
     ;
 }
@@ -30,7 +30,6 @@ nav section {
     padding: 0;
     margin: 0;
     display: grid;
-    border: pink solid;
 }
 
 nav menu ul {
@@ -61,19 +60,9 @@ header nav {
     display: grid;
     row-gap: 0;
     grid-template: 
-    "img title" 100px
-    "menu menu" 150px 
+    "img title" 10vh
+    "menu menu" 5vh 
     / 100px 1fr;
-}
-
-#head_menu {
-    grid-area: menu;
-    z-index: 1;
-}
-
-#head_menu ul {
-    margin: 0 auto;
-    display: flex;
 }
 
 #head_title {
@@ -93,10 +82,17 @@ header nav {
     margin: 0;
 }
 
-header menu {
-    width: 100%;
-    padding: 0 auto 0 auto 0;
+#head_menu {
     margin: 0 auto;
+    grid-area: menu;
+    width: 100%;
+    z-index: 1;
+}
+
+#head_menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 header nav .menu_item {
@@ -112,6 +108,7 @@ header nav .menu_item {
 }
 
 main {
+    overflow-x: hidden;
     grid-area: main;
     position: relative;
     width: 100vw;
@@ -128,36 +125,40 @@ main {
     position: relative;
     width: 60vw;
     max-width: 80%;
-    margin: 0 auto;
-    display: block;
+    margin: 0 auto 5vh;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     &::after {
         content: "";
         top: 0px;
         left: 0px;
-        width: 0px;
-        height: 0px;
         position: absolute;
-        transform-origin: 0 0;
         border-left: solid 5vw rgb(229, 219, 171);
         border-bottom: solid 5vw rgb(105, 158, 197);
         box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     }
 }
 
-#content_letter #content  {
-        background-color: rgb(231, 234, 225);
-        padding: 10vw 5vh 5vw 5vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+#content  {
+    background-color: rgb(231, 234, 225);
+    padding: 7vw 3vh 5vw 5vh;
+    position: relative;
+    top: 0;
+    left: 0;
+}
 
-main > .content > p {
-
+#content img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid lightgray 1px;
+    float: left;
+    margin: 15px;
 }
 
 footer {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
     grid-area: foot;
     position: relative;
     width: 100%;
@@ -172,6 +173,14 @@ footer nav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;    
+}
+
+footer nav a {
+    font-family: warmin;
+    line-height: 0px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
 }
 
 footer nav section {
