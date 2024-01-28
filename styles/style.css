@@ -1,55 +1,56 @@
 @font-face {
     font-family: warmin;
     src: 
-        /*local('warmin')*/
-        url('/fonts/warmin.ttf') format('truetype');
+        url('../fonts/warmin.ttf') format('truetype');
 }
 
 /* GENERAL FORMAT */
 
 body {
     position: absolute;
-    top: 0;
-    left: 0;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden;
     display: grid;
+    row-gap: 0;
     grid-template:
     "head" 20vh
-    "main" 1fr
-    "foot" 20vh
+    "main" 65vh
+    "foot" 15vh
+    / 100%
     ;
 }
 
 nav section {
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     display: grid;
     border: pink solid;
 }
 
 nav menu ul {
     padding: 0;
-    margin: 0 auto;
+    margin: 0;
     list-style: none;
  }
+
+h3 {
+    line-height: normal;
+}
 
 /* SPECIFIC FORMAT */
 
 header {
-    font-family: warmin, sans-serif;
-    font-weight: bold;
+    font-family: warmin, Arial, Helvetica, sans-serif;
+    font-weight:900;
+    font-size: 1.5rem;
     grid-area: head;
     width: 100%;
-    height: 250px;
-    position: relative;
-    top: 0px;
-    left: 0px;
     border: 3px rgb(66, 103, 100) solid;
     background-color: rgb(106, 163, 154);
     padding: 0;
@@ -58,16 +59,16 @@ header {
 
 header nav {
     display: grid;
+    row-gap: 0;
     grid-template: 
-    "img title" auto
-    "menu menu" auto / 150px;
+    "img title" 100px
+    "menu menu" 150px 
+    / 100px 1fr;
 }
 
-#hed_menu {
-    top: 50px;
+#head_menu {
+    grid-area: menu;
     z-index: 1;
-    position: relative;
-    width: 100%;
 }
 
 #head_menu ul {
@@ -76,19 +77,23 @@ header nav {
 }
 
 #head_title {
+    margin: 0 auto;
     grid-area: title;
+    letter-spacing: 0.5cap;
 }
 
-#head_main_link_img {
+#head_main_link_logo {
     grid-area: img;
-    height: 80px;
-    width: auto;
-    padding: 15px;
+}
+
+#head_main_link_logo img {
+    height: auto;
+    width: 90px;
+    padding: 0;
     margin: 0;
 }
 
 header menu {
-    border: black solid;
     width: 100%;
     padding: 0 auto 0 auto 0;
     margin: 0 auto;
@@ -97,42 +102,35 @@ header menu {
 header nav .menu_item {
     white-space: nowrap;
     padding: 5px 20px 5px 20px;
-    margin: -10px;
+    margin: 0 -10px 0 -10px;
     text-align: center;
     text-decoration: none;
     user-select: none;
     border: solid;
-    border-radius: 60px;
-    overflow: visible;
+    border-radius: 5vw;
     background-color: aqua;
 }
 
 main {
     grid-area: main;
     position: relative;
-    width: 100%;
-    height: calc(100vh - 300px);
+    width: 100vw;
     overflow: scroll;
-    /*min-height: 500px;*/
-    /*top: 150px;*/
-    left: 0;
     border: 3px rgb(172, 124, 78) solid;
     background-color: rgb(229, 219, 171);
 }
 
 #breadcrumb {
-
+    position: sticky;
 }
 
-main > .content_letter {
+#content_letter {
     position: relative;
-    height: 100vh;
-    min-width: 50vw;
-    width: 60%;
+    width: 60vw;
     max-width: 80%;
     margin: 0 auto;
     display: block;
-    &::before, &::after {
+    &::after {
         content: "";
         top: 0px;
         left: 0px;
@@ -140,17 +138,15 @@ main > .content_letter {
         height: 0px;
         position: absolute;
         transform-origin: 0 0;
-        border-left: solid 5vw transparent;
+        border-left: solid 5vw rgb(229, 219, 171);
         border-bottom: solid 5vw rgb(105, 158, 197);
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     }
 }
 
-main > .content_letter > .content  {
-        content: "";
+#content_letter #content  {
         background-color: rgb(231, 234, 225);
-        width: 100%;
-        height: auto;
-        padding: 10vw;
+        padding: 10vw 5vh 5vw 5vh;
         position: absolute;
         top: 0;
         left: 0;
@@ -161,25 +157,26 @@ main > .content > p {
 }
 
 footer {
+    font-size: 0.75rem;
     grid-area: foot;
     position: relative;
     width: 100%;
     border: 3px rgb(0, 109, 109) solid;
     background-color: darkcyan;
+    bottom: 0px;
 }
 
-footer > menu {
-
+footer nav {
+    margin: 0 auto;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;    
 }
 
-footer > nav > menu > a.menu_item {
-
+footer nav section {
 }
 
-footer > nav > menu > section > ul::first-line { 
-    font-weight: bold;
-}
-
-footer > .date {
+footer .date {
 
 }
