@@ -116,9 +116,8 @@ header nav .menu_item {
     text-decoration: none;
     user-select: none;
     border: solid;
-    border-radius: 100px;
     background-color: transparent;
-    text-shadow: 1px 1px 3px white;
+    text-shadow: 1px 1px 3px yellowgreen;
 }
 
 main {

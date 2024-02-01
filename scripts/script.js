@@ -16,6 +16,10 @@ for (let item of menuItems) {
 
 for (let item of mainMenuButtons) {
     let zIndex = Math.ceil(Math.random() * mainMenuButtons.length);
+    let radius = {lt: Math.ceil(Math.random() * (80-40) + 40),
+                  rt: Math.ceil(Math.random() * (80-40) + 40),
+                  lb: Math.ceil(Math.random() * (80-40) + 40),
+                  rb: Math.ceil(Math.random() * (80-40) + 40),};
     let rotation = Math.ceil(Math.random() * 30 - 15);
     let margin = Math.ceil(Math.random() * (-10));
     let padding = Math.ceil(Math.random() * (15 - 10) + 10);
@@ -28,5 +32,6 @@ for (let item of mainMenuButtons) {
     item.style.padding = padding + "px";
     item.style.rotate = rotation + "deg";
     item.style.zIndex = zIndex;
-    console.log(item);
+    item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
+    console.log(item, radius.lb + " " + radius.lt);
 }
