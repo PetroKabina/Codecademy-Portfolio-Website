@@ -8,7 +8,8 @@
 
 body {
     position: absolute;
-    overflow: hidden;
+    overflow: scroll;
+    height: auto;
     top: 0px;
     left: 0px;
     padding: 0;
@@ -19,9 +20,9 @@ body {
     display: grid;
     row-gap: 0;
     grid-template:
-    "head" minmax(20vh, max-content)
-    "main" 65vh
-    "foot" minmax(15vh, max-content)
+    "head" 20vh
+    "main" 70vh
+    "foot" 10vh
     / 100%
     ;
 }
@@ -30,6 +31,7 @@ nav section {
     padding: 0;
     margin: 0;
     display: grid;
+    border: solid pink 1px;
 }
 
 nav menu ul {
@@ -46,23 +48,25 @@ h3 {
 
 header {
     font-family: warmin, Arial, Helvetica, sans-serif;
-    font-weight:900;
-    font-size: 1.5rem;
+    font-weight: 900;
+    font-size: 1.75rem;
     grid-area: head;
     width: 100%;
     border: 3px rgb(66, 103, 100) solid;
     background-color: rgb(106, 163, 154);
     padding: 0;
     margin: 0;
+    position: sticky;
 }
 
 header nav {
     display: grid;
     row-gap: 0;
     grid-template: 
-    "img title" 10vh
-    "menu menu" 5vh 
-    / 100px 1fr;
+    "img title title" 10vh
+    "menu menu menu" 5vh
+    ". . tod" 5vh
+    / 100px 5fr 1fr;
 }
 
 #head_title {
@@ -95,30 +99,51 @@ header nav {
     justify-content: center;
 }
 
+#tod {
+    grid-area: tod;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    justify-self: flex-start;
+    text-align: left;
+    min-width: 150px;
+    overflow:visible;
+    z-index: 1;
+}
+
 header nav .menu_item {
     white-space: nowrap;
-    padding: 5px 20px 5px 20px;
-    margin: 0 -10px 0 -10px;
     text-align: center;
     text-decoration: none;
     user-select: none;
     border: solid;
-    border-radius: 5vw;
-    background-color: aqua;
+    border-radius: 100px;
+    background-color: transparent;
+    text-shadow: 1px 1px 3px white;
 }
 
 main {
-    overflow-x: hidden;
     grid-area: main;
-    position: relative;
+    position: static;
     width: 100vw;
-    overflow: scroll;
+    overflow-y: scroll;
     border: 3px rgb(172, 124, 78) solid;
     background-color: rgb(229, 219, 171);
 }
 
+
 #breadcrumb {
-    position: sticky;
+    display: inline-flex;
+    position: relative;
+    margin:  0 auto;
+    width: 100%;
+    top: 0;
+}
+
+#breadcrumb li {
+    &:not(:last-child)::after {
+        content: "→";
+        padding: 0 0.5rem;
+    }
 }
 
 #content_letter {
@@ -144,6 +169,11 @@ main {
     position: relative;
     top: 0;
     left: 0;
+    text-align: justify;
+}
+
+#content h2 {
+    text-align: center;
 }
 
 #content img {
@@ -160,7 +190,11 @@ main {
 footer {
     font-size: 1.25rem;
     grid-area: foot;
-    position: relative;
+    bottom: 0;
+    height: fit-content;
+    left: 0;
+    overflow: visible;
+    position: static;
     width: 100%;
     border: 3px rgb(0, 109, 109) solid;
     background-color: darkcyan;
@@ -175,17 +209,22 @@ footer nav {
     grid-template-rows: 1fr;    
 }
 
-footer nav a {
+footer nav h4 a {
     font-family: warmin;
+    font-size: 1.5rem;
     line-height: 0px;
     font-weight: bold;
     color: black;
     text-decoration: none;
 }
 
-footer nav section {
+footer nav a {
+    line-height: 0px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
 }
 
-footer .date {
-
+footer nav section {
 }
