@@ -8,7 +8,6 @@
 
 body {
     position: absolute;
-    overflow: scroll;
     height: auto;
     top: 0px;
     left: 0px;
@@ -21,7 +20,7 @@ body {
     row-gap: 0;
     grid-template:
     "head" 20vh
-    "main" 70vh
+    "main" auto
     "foot" 10vh
     / 100%
     ;
@@ -31,14 +30,18 @@ nav section {
     padding: 0;
     margin: 0;
     display: grid;
-    border: solid pink 1px;
+    /*border: solid pink 1px;*/
+}
+
+nav a {
+    text-decoration: none;
 }
 
 nav menu ul {
     padding: 0;
     margin: 0;
     list-style: none;
- }
+}
 
 h3 {
     line-height: normal;
@@ -113,7 +116,6 @@ header nav {
 header nav .menu_item {
     white-space: nowrap;
     text-align: center;
-    text-decoration: none;
     user-select: none;
     border: solid;
     background-color: transparent;
@@ -124,7 +126,8 @@ main {
     grid-area: main;
     position: static;
     width: 100vw;
-    overflow-y: scroll;
+    min-height: fit-content;
+    overflow-y: visible;
     border: 3px rgb(172, 124, 78) solid;
     background-color: rgb(229, 219, 171);
 }
@@ -139,6 +142,9 @@ main {
 }
 
 #breadcrumb li {
+    font-family: warmin, Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 1rem;
     &:not(:last-child)::after {
         content: "→";
         padding: 0 0.5rem;
@@ -209,12 +215,11 @@ footer nav {
 }
 
 footer nav h4 a {
-    font-family: warmin;
+    font-family: warmin, Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     line-height: 0px;
     font-weight: bold;
     color: black;
-    text-decoration: none;
 }
 
 footer nav a {
