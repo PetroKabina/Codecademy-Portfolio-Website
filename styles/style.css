@@ -4,6 +4,25 @@
         url('../fonts/warmin.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Old English Five';
+    src: url('../fonts/OldEnglishFive-axyVg.ttf');
+}
+
+@import url('https://fonts.cdnfonts.com/css/old-english-five');
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+
 /* GENERAL FORMAT */
 
 body {
@@ -30,6 +49,7 @@ nav section {
     padding: 0;
     margin: 0;
     display: grid;
+    user-select: none;
     /*border: solid pink 1px;*/
 }
 
@@ -43,8 +63,37 @@ nav menu ul {
     list-style: none;
 }
 
+h2, h3 {
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    font-family: 'Old English Five', sans-serif;
+}
+
 h3 {
-    line-height: normal;
+    font-family: warmin, Arial, Helvetica, sans-serif;
+}
+
+br {
+    content: "";
+    margin: 2em;
+    display: block;
+    font-size: 24%;
+}
+
+p {
+    text-indent: 3vw;
+    text-align: justify;
+    text-align-last: left;
+    vertical-align: baseline;
+    line-height: 2rem;
+}
+
+h4 {
+    display: inline;
 }
 
 /* SPECIFIC FORMAT */
@@ -55,7 +104,7 @@ header {
     font-size: 1.75rem;
     grid-area: head;
     width: 100%;
-    border: 3px rgb(66, 103, 100) solid;
+    /*border: 3px rgb(66, 103, 100) solid;*/
     background-color: rgb(106, 163, 154);
     padding: 0;
     margin: 0;
@@ -75,7 +124,7 @@ header nav {
 #head_title {
     margin: 0 auto;
     grid-area: title;
-    letter-spacing: 0.5cap;
+    letter-spacing: 1cap;
 }
 
 #head_main_link_logo {
@@ -84,8 +133,8 @@ header nav {
 
 #head_main_link_logo img {
     height: auto;
-    width: 90px;
-    padding: 0;
+    width: 100px;
+    padding: 20px;
     margin: 0;
 }
 
@@ -119,7 +168,8 @@ header nav .menu_item {
     user-select: none;
     border: solid;
     background-color: transparent;
-    text-shadow: 1px 1px 3px yellowgreen;
+    color: rgb(231, 234, 225);
+    text-decoration-line: underline;
 }
 
 main {
@@ -128,10 +178,9 @@ main {
     width: 100vw;
     min-height: fit-content;
     overflow-y: visible;
-    border: 3px rgb(172, 124, 78) solid;
+    /*border: 3px rgb(172, 124, 78) solid;*/
     background-color: rgb(229, 219, 171);
 }
-
 
 #breadcrumb {
     display: inline-flex;
@@ -139,11 +188,12 @@ main {
     margin:  0 auto;
     width: 100%;
     top: 0;
+    user-select: none;
 }
 
 #breadcrumb li {
     font-family: warmin, Arial, Helvetica, sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 1rem;
     &:not(:last-child)::after {
         content: "→";
@@ -153,8 +203,10 @@ main {
 
 #content_letter {
     position: relative;
+    overflow-x: hidden;
     width: 60vw;
     max-width: 80%;
+    min-width: 500px;
     margin: 0 auto 5vh;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     &::after {
@@ -181,7 +233,7 @@ main {
     text-align: center;
 }
 
-#content img {
+#content p img {
     width: 100%;
     max-width: 250px;
     height: auto;
@@ -190,6 +242,21 @@ main {
     border: solid lightgray 1px;
     float: left;
     margin: 15px;
+}
+
+#content .list_icon {
+    padding-right: 1rem;
+    max-width: 1.5rem;
+    height: auto;
+}
+
+#content p:first-of-type::first-letter  {
+    font-family: 'Old English Five', sans-serif;
+    font-size: 2rem;
+}
+
+#content ul {
+    list-style: none;
 }
 
 footer {
@@ -201,7 +268,7 @@ footer {
     overflow: visible;
     position: static;
     width: 100%;
-    border: 3px rgb(0, 109, 109) solid;
+    /*border: 3px rgb(0, 109, 109) solid;*/
     background-color: darkcyan;
     bottom: 0px;
 }

@@ -1,4 +1,4 @@
-const randomizer = (min, max) => {
+const rand = (min, max) => {
     if (min >= 0) {
         return Math.ceil(Math.random() * (max - min) + min);
     } else {
@@ -8,9 +8,10 @@ const randomizer = (min, max) => {
 
 let menuItems = document.getElementsByClassName("menu_item");
 let mainMenuButtons = document.querySelectorAll("header nav #head_menu .menu_item");
+let firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter");
 
 var mouseEnter = (event) => {
-    event.target.style.textShadow = "2px 2px 2px white";
+    event.target.style.textShadow = "1px 1px 2px white";
 }
 
 var mouseLeave = (event) => {
@@ -23,17 +24,17 @@ for (let item of menuItems) {
 }
 
 for (let item of mainMenuButtons) {
-    let zIndex = randomizer(0, mainMenuButtons.length);
-    let radius = {lt: randomizer(80,40),
-                  rt: randomizer(80,40),
-                  lb: randomizer(80,40),
-                  rb: randomizer(80,40),};
-    let rotation = randomizer(-30,30);
-    let margin = randomizer(-10, 0);
-    let padding = 5 + randomizer(-15, 40);
-    let rRand = randomizer(20, 150);
-    let gRand = randomizer(70, 150);
-    let bRand = randomizer(70, 150);
+    let zIndex = rand(0, mainMenuButtons.length);
+    let radius = {lt: rand(80,40),
+                  rt: rand(80,40),
+                  lb: rand(80,40),
+                  rb: rand(80,40),};
+    let rotation = rand(-30,30);
+    let margin = rand(-5, 0);
+    let padding = 5 + rand(-15, 40);
+    let rRand = rand(20, 150);
+    let gRand = rand(70, 150);
+    let bRand = rand(70, 150);
     let randomBGColor = "rgb(" + rRand + "," + gRand + ","+ bRand + ")";
     item.style.backgroundColor = randomBGColor;
     item.style.margin = margin + "px";
@@ -44,3 +45,6 @@ for (let item of mainMenuButtons) {
     item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
     console.log(item, radius.lb + " " + radius.lt);
 }
+
+console.dir(firstContentPLetter)
+firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
