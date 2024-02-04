@@ -9,7 +9,7 @@ const rand = (min, max) => {
 const menuItems = document.getElementsByClassName("menu_item");
 const mainMenuButtons = document.querySelectorAll("header nav #head_menu .menu_item");
 const firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter");
-const link = document.querySelector('#content a');
+const link = document.querySelector('main #content a');
 
 var mouseEnter = (event) => {
     event.target.style.textShadow = "1px 1px 1px black";
