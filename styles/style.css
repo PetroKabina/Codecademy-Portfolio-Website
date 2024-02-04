@@ -92,7 +92,7 @@ p {
     line-height: 2rem;
 }
 
-h4 {
+h4, h5 {
     display: inline;
 }
 
@@ -170,6 +170,7 @@ header nav .menu_item {
     background-color: transparent;
     color: rgb(231, 234, 225);
     text-decoration-line: underline;
+    position: relative;
 }
 
 main {
@@ -229,6 +230,14 @@ main {
     text-align: justify;
 }
 
+#content a {
+    text-decoration: none;
+    color: darkblue;
+    &:visited {
+        color: blueviolet;
+    }
+}
+
 #content h2 {
     text-align: center;
 }
@@ -250,13 +259,69 @@ main {
     height: auto;
 }
 
-#content p:first-of-type::first-letter  {
+#content > p:first-of-type::first-letter  {
     font-family: 'Old English Five', sans-serif;
     font-size: 2rem;
 }
 
 #content ul {
     list-style: none;
+}
+
+#content .cards_panel {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#content .card {
+    font-size: 0.9rem;
+    overflow:hidden;
+    text-align: center;
+    box-shadow: 2px 2px 5px blue, 
+                -2px -2px 5px yellow, 
+                -2px 2px 5px red, 
+                2px -2px 5px black;
+    border: 2px white solid;
+    padding: 5%;
+    margin: 2vw auto 2vw auto;
+    max-width: 25%;
+    max-height: 25%;
+    min-width: 15rem;
+    min-height: 15rem;
+    user-select: none;
+    &.main_card {
+        box-shadow: 2px 2px 10px blue, 
+                -2px -2px 10px yellow, 
+                -2px 2px 10px red, 
+                2px -2px 10px black;
+        min-height: 5rem;
+        max-height: 10%;
+        height: 1vw;
+        width: 100%;
+    }
+    & h4, & h5 {
+        font-size: 1rem;
+        text-align: center;
+    }
+    & .material-symbols-outlined {
+        font-size: 0.9rem;
+    }
+}
+
+#content .card_desc p {
+    color: darkgreen;
+    text-indent: 0px;
+    padding: 1rem;
+    border-radius: 2rem;
+    line-height: 1rem;
+    background: rgb(245,255,0);
+    background: linear-gradient(60deg, rgba(245,255,0,0.05) 0%, rgba(0,5,255,0.02) 50%);
+    box-shadow: 0px 0px 10px lightgray;
+    text-shadow: 1px 1px 1px lightgreen;
 }
 
 footer {

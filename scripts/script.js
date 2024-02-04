@@ -6,24 +6,31 @@ const rand = (min, max) => {
     }
 }
 
-let menuItems = document.getElementsByClassName("menu_item");
-let mainMenuButtons = document.querySelectorAll("header nav #head_menu .menu_item");
-let firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter");
+const menuItems = document.getElementsByClassName("menu_item");
+const mainMenuButtons = document.querySelectorAll("header nav #head_menu .menu_item");
+const firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter");
+const link = document.querySelector('#content a');
 
 var mouseEnter = (event) => {
-    event.target.style.textShadow = "1px 1px 2px white";
+    event.target.style.textShadow = "1px 1px 1px black";
 }
 
 var mouseLeave = (event) => {
     event.target.style.textShadow = "";
 }
+// mouse hover effects
+//link.onmouseenter = mouseEnter;
+//link.onmouseleave = mouseLeave;
 
 for (let item of menuItems) {
     item.onmouseenter = mouseEnter;
     item.onmouseleave = mouseLeave;
 }
 
+// MAIN MENU EFFECTS
 for (let item of mainMenuButtons) {
+    // RANDOM VALUES DECLARATION
+    let top = rand(0, 20)
     let zIndex = rand(0, mainMenuButtons.length);
     let radius = {lt: rand(80,40),
                   rt: rand(80,40),
@@ -36,6 +43,7 @@ for (let item of mainMenuButtons) {
     let gRand = rand(70, 150);
     let bRand = rand(70, 150);
     let randomBGColor = "rgb(" + rRand + "," + gRand + ","+ bRand + ")";
+    // RANDOMIZING THE LAYOUT
     item.style.backgroundColor = randomBGColor;
     item.style.margin = margin + "px";
     item.style.padding = padding + "px";
@@ -43,8 +51,7 @@ for (let item of mainMenuButtons) {
     item.style.zIndex = zIndex;
     item.style.border = "solid 3px " + "rgb(" + (rRand - 50) + "," + (gRand - 50) + ","+ (bRand - 50) + ")";;
     item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
-    console.log(item, radius.lb + " " + radius.lt);
+    item.style.top = top + 'px';
 }
 
-console.dir(firstContentPLetter)
-firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
+//firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
