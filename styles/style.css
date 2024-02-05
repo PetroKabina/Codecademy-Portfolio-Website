@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/old-english-five');
+
 @font-face {
     font-family: warmin;
     src: 
@@ -8,8 +10,6 @@
     font-family: 'Old English Five';
     src: url('../fonts/OldEnglishFive-axyVg.ttf');
 }
-
-@import url('https://fonts.cdnfonts.com/css/old-english-five');
 
 @font-face {
     font-family: 'Material Icons';
@@ -63,6 +63,13 @@ nav menu ul {
     list-style: none;
 }
 
+h1 {
+    text-shadow: 10px 10px 10px wheat, 10px -10px 10px whitesmoke, -10px 10px 10px honeydew, -10px -10px 10px aqua;
+    overflow: visible;
+    
+    display: inline;
+}
+
 h2, h3 {
     margin: 0 auto;
     text-align: center;
@@ -99,25 +106,25 @@ h4, h5 {
 /* SPECIFIC FORMAT */
 
 header {
+    top: 0;
     font-family: warmin, Arial, Helvetica, sans-serif;
     font-weight: 900;
     font-size: 1.75rem;
     grid-area: head;
     width: 100%;
     /*border: 3px rgb(66, 103, 100) solid;*/
-    background-color: rgb(106, 163, 154);
+    /*background-color: rgb(106, 163, 154);*/
+    background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
     padding: 0;
     margin: 0;
-    position: sticky;
 }
 
 header nav {
     display: grid;
     row-gap: 0;
     grid-template: 
-    "img title title" 10vh
+    "img title tod" 10vh
     "menu menu menu" 5vh
-    ". . tod" 5vh
     / 100px 5fr 1fr;
 }
 
@@ -153,12 +160,14 @@ header nav {
 
 #tod {
     grid-area: tod;
+    line-height: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
+    font-size: 1rem;
     justify-self: flex-start;
     text-align: left;
     min-width: 150px;
     overflow:visible;
+    padding: 2vw;
     z-index: 1;
 }
 
@@ -168,7 +177,7 @@ header nav .menu_item {
     user-select: none;
     border: solid;
     background-color: transparent;
-    color: rgb(231, 234, 225);
+    text-shadow: 1px 1px 3px wheat;
     text-decoration-line: underline;
     position: relative;
 }
@@ -180,7 +189,8 @@ main {
     min-height: fit-content;
     overflow-y: visible;
     /*border: 3px rgb(172, 124, 78) solid;*/
-    background-color: rgb(229, 219, 171);
+    /*background-color: rgb(229, 219, 171);*/
+    background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
 }
 
 #breadcrumb {
@@ -209,20 +219,24 @@ main {
     max-width: 80%;
     min-width: 500px;
     margin: 0 auto 5vh;
+    background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
     box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
     &::after {
-        content: "";
-        top: 0px;
-        left: 0px;
+        content: " ";
         position: absolute;
-        border-left: solid 5vw rgb(229, 219, 171);
-        border-bottom: solid 5vw rgb(105, 158, 197);
-        box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+        top: 0;
+        left: 0;
+        height: 0px;
+        width: 0px;
+        z-index: 2;
+        border-width: 3vw;
+        border-style: solid;
+        border-color: transparent  rgba(238, 237, 232, 1)  rgba(238, 237, 232, 1)  transparent;
+        filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
     }
 }
 
 #content  {
-    background-color: rgb(231, 234, 225);
     padding: 7vw 3vh 5vw 5vh;
     position: relative;
     top: 0;
@@ -278,6 +292,7 @@ main {
 }
 
 #content .card {
+    flex-shrink: 0;
     font-size: 0.9rem;
     overflow:hidden;
     text-align: center;
@@ -286,12 +301,12 @@ main {
                 -2px 2px 5px red, 
                 2px -2px 5px black;
     border: 2px white solid;
-    padding: 5%;
+    padding: 2%;
     margin: 2vw auto 2vw auto;
-    max-width: 25%;
+    max-width: 40%;
     max-height: 25%;
-    min-width: 15rem;
-    min-height: 15rem;
+    min-width: 150px;
+    min-height: 150px;
     user-select: none;
     &.main_card {
         box-shadow: 2px 2px 10px blue, 
@@ -318,7 +333,6 @@ main {
     padding: 1rem;
     border-radius: 2rem;
     line-height: 1rem;
-    background: rgb(245,255,0);
     background: linear-gradient(60deg, rgba(245,255,0,0.05) 0%, rgba(0,5,255,0.02) 50%);
     box-shadow: 0px 0px 10px lightgray;
     text-shadow: 1px 1px 1px lightgreen;
@@ -342,7 +356,7 @@ footer nav {
     margin: 0 auto;
     width: 60vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;    
 }
 
@@ -362,5 +376,8 @@ footer nav a {
     text-decoration: none;
 }
 
-footer nav section {
+@media screen and (max-width: 900px) {
+    header nav .menu_item {
+        border-radius: '';
+    }
 }
