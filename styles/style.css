@@ -37,7 +37,7 @@ body {
     display: grid;
     row-gap: 0;
     grid-template:
-    "head" 20vh
+    "head" 25vh
     "main" auto
     "foot" 10vh
     / 100%
@@ -122,8 +122,9 @@ header nav {
     display: grid;
     row-gap: 0;
     grid-template: 
-    "img title tod" 10vh
-    "menu menu menu" 5vh
+    "img title title" 10vh
+    "menu menu menu" 12vh
+    "tod tod tod" 3vh
     / 100px 5fr 1fr;
 }
 
@@ -161,10 +162,11 @@ header nav {
     grid-area: tod;
     line-height: 1rem;
     font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 2px wheat;
     font-size: 1rem;
-    justify-self: flex-start;
-    text-align: left;
-    min-width: 150px;
+    justify-self:center;
+    text-align: center;
+    min-width: 500px;
     overflow:visible;
     padding: 2vw;
     z-index: 1;
@@ -385,6 +387,7 @@ footer nav a {
 
     h1 {
         padding: 0;
+        position: relative;
         line-break: auto;
         margin: 5px;
         font-size: 1.5rem;
@@ -407,17 +410,23 @@ footer nav a {
     #head_menu {
         left: 0;
         margin: 0;
+        min-width: 60%;
         display: inline-flex;
     }
 
     #tod {
         left: 0px;
-        margin: 5px;
-        padding: 0;
+        margin: 0px;
+        padding: 0px;
+        position: relative;
     }
 
     main {
         width: 100%;
+
+        & #content {
+            font-size: 1rem;
+        }
     }
 
     #breadcrumb {
@@ -425,6 +434,33 @@ footer nav a {
         width: 100%;
         top: 0;
         user-select: none;
+        & a {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    } 
+
+    footer * {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer nav section {
+        &::before {
+            content: "__________________________";
+            position: relative;
+            margin: 0 auto;
+            text-shadow: 1px 1px 1px wheat;
+            line-height: 3rem;
+        }
+
+        & menu li {
+            left: 0;
+            max-width: 40%;
+            margin: 0 auto;
+            padding-left: 20%;
+            text-align: left;
+        }
     }
 
     footer nav {
@@ -433,37 +469,18 @@ footer nav a {
         align-items: center;
         justify-items: center;
         width: 100%;
-    }
+        & h4 a {
+            font-weight: bolder;
+            line-height: 2rem;
+            font-size: 1.5rem;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-    footer * {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    footer nav section menu li {
-        left: 0;
-        max-width: 40%;
-        margin: 0 auto;
-        padding: 0;
-        text-align: center;
-    }
-
-    footer nav section {
-        &::before {
-            content: "__________________";
-            position: relative;
-            margin: 0 auto;
-            text-shadow: 1px 1px 1px wheat;
-            line-height: 3rem;
+        & a {
+            font-size: 1rem;
+            font-weight: bold;
         }
     }
 
-    footer nav a {
-        font-size: 1.25rem;
-    }
-
-    footer nav h4 {
-        font-size: 1.25rem;
-    }
 }
