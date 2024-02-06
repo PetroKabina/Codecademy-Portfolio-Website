@@ -23,8 +23,7 @@
       url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
   }
 
-/* GENERAL FORMAT */
-
+/* GENERAL FORMAT */ 
 body {
     position: absolute;
     height: auto;
@@ -66,7 +65,7 @@ nav menu ul {
 h1 {
     text-shadow: 10px 10px 10px wheat, 10px -10px 10px whitesmoke, -10px 10px 10px honeydew, -10px -10px 10px aqua;
     overflow: visible;
-    
+    min-width: 1000px;
     display: inline;
 }
 
@@ -376,8 +375,95 @@ footer nav a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 900px) {
-    header nav .menu_item {
-        border-radius: '';
+@media only screen and (max-width: 1000px) {
+    
+    #head_main_link_logo img {
+        padding: 0px;
+        max-width: 90px;
+        height: auto;
+    }
+
+    h1 {
+        padding: 0;
+        line-break: auto;
+        margin: 5px;
+        font-size: 1.5rem;
+        min-width: 50%;
+        max-width: 500px;
+        text-decoration: overline underline;
+        text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
+        color: gray;
+    }
+    
+    header .menu_item {
+        border: none;
+        background-color: transparent;
+        text-shadow: 1px 1px 3px wheat;
+        text-decoration-line: underline;
+        position: relative;
+        border-radius: 50px;
+    }
+
+    #head_menu {
+        left: 0;
+        margin: 0;
+        display: inline-flex;
+    }
+
+    #tod {
+        left: 0px;
+        margin: 5px;
+        padding: 0;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    #breadcrumb {
+        margin:  0 auto;
+        width: 100%;
+        top: 0;
+        user-select: none;
+    }
+
+    footer nav {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+    }
+
+    footer * {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer nav section menu li {
+        left: 0;
+        max-width: 40%;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+    }
+
+    footer nav section {
+        &::before {
+            content: "__________________";
+            position: relative;
+            margin: 0 auto;
+            text-shadow: 1px 1px 1px wheat;
+            line-height: 3rem;
+        }
+    }
+
+    footer nav a {
+        font-size: 1.25rem;
+    }
+
+    footer nav h4 {
+        font-size: 1.25rem;
     }
 }

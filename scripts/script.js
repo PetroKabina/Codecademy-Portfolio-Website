@@ -72,7 +72,7 @@ var elements = document.getElementsByClassName(className);
     }
 }
 // here we run the clockTick function every 100ms
-setInterval(clockTick, 100);
+setInterval(clockTick, 500);
 
 const tod = document.getElementById("tod"),
 mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
@@ -97,7 +97,7 @@ const mouseLeave = (event) => {
     event.target.style.filter= "";
 }
 
-if (window.matchMedia("(min-width: 800px)").matches) {
+//if (window.matchMedia("(min-width: 1000px)").matches) {
     // mouse hover effects
     //link.onmouseenter = mouseEnter;
     //link.onmouseleave = mouseLeave;
@@ -133,6 +133,9 @@ if (window.matchMedia("(min-width: 800px)").matches) {
         item.style.color = randomBGColor;
     }
 
-} else {
-    ;
-}
+//} else {
+/*    for (let item of mainMenuButtons) {
+        item.style.borderRadius = "0px";
+    };
+*/
+//}
