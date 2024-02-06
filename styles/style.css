@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: warmin;
-    src: 
+    src:
         url('../fonts/warmin.ttf') format('truetype');
 }
 
@@ -15,15 +15,16 @@
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
     src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
-      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
-      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
-  }
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
 
-/* GENERAL FORMAT */ 
+/* GENERAL FORMAT */
 body {
     position: absolute;
     height: auto;
@@ -37,10 +38,10 @@ body {
     display: grid;
     row-gap: 0;
     grid-template:
-    "head" 25vh
-    "main" auto
-    "foot" 10vh
-    / 100%
+        "head" 25vh
+        "main" auto
+        "foot" 10vh
+        / 100%
     ;
 }
 
@@ -69,7 +70,8 @@ h1 {
     display: inline;
 }
 
-h2, h3 {
+h2,
+h3 {
     margin: 0 auto;
     text-align: center;
     text-decoration: underline;
@@ -98,7 +100,8 @@ p {
     line-height: 2rem;
 }
 
-h4, h5 {
+h4,
+h5 {
     display: inline;
 }
 
@@ -121,11 +124,11 @@ header {
 header nav {
     display: grid;
     row-gap: 0;
-    grid-template: 
-    "img title title" 10vh
-    "menu menu menu" 12vh
-    "tod tod tod" 3vh
-    / 100px 5fr 1fr;
+    grid-template:
+        "img title title" 10vh
+        "menu menu menu" 12vh
+        "tod tod tod" 3vh
+        / 100px 5fr 1fr;
 }
 
 #head_title {
@@ -164,10 +167,10 @@ header nav {
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 1px 1px 2px wheat;
     font-size: 1rem;
-    justify-self:center;
+    justify-self: center;
     text-align: center;
     min-width: 500px;
-    overflow:visible;
+    overflow: visible;
     padding: 2vw;
     z-index: 1;
 }
@@ -197,7 +200,7 @@ main {
 #breadcrumb {
     display: inline-flex;
     position: relative;
-    margin:  0 auto;
+    margin: 0 auto;
     width: 100%;
     top: 0;
     user-select: none;
@@ -207,6 +210,7 @@ main {
     font-family: warmin, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1rem;
+
     &:not(:last-child)::after {
         content: "→";
         padding: 0 0.5rem;
@@ -221,7 +225,8 @@ main {
     min-width: 500px;
     margin: 0 auto 5vh;
     background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
     &::after {
         content: " ";
         position: absolute;
@@ -232,12 +237,12 @@ main {
         z-index: 2;
         border-width: 3vw;
         border-style: solid;
-        border-color: transparent  rgba(238, 237, 232, 1)  rgba(238, 237, 232, 1)  transparent;
+        border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
         filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
     }
 }
 
-#content  {
+#content {
     padding: 7vw 3vh 5vw 5vh;
     position: relative;
     top: 0;
@@ -248,6 +253,7 @@ main {
 #content a {
     text-decoration: none;
     color: darkblue;
+
     &:visited {
         color: blueviolet;
     }
@@ -274,7 +280,7 @@ main {
     height: auto;
 }
 
-#content > p:first-of-type::first-letter  {
+#content>p:first-of-type::first-letter {
     font-family: 'Old English Five', sans-serif;
     font-size: 2rem;
 }
@@ -295,12 +301,12 @@ main {
 #content .card {
     flex-shrink: 0;
     font-size: 0.9rem;
-    overflow:hidden;
+    overflow: hidden;
     text-align: center;
-    box-shadow: 2px 2px 5px blue, 
-                -2px -2px 5px yellow, 
-                -2px 2px 5px red, 
-                2px -2px 5px black;
+    box-shadow: 2px 2px 5px blue,
+        -2px -2px 5px yellow,
+        -2px 2px 5px red,
+        2px -2px 5px black;
     border: 2px white solid;
     padding: 2%;
     margin: 2vw auto 2vw auto;
@@ -309,20 +315,24 @@ main {
     min-width: 150px;
     min-height: 150px;
     user-select: none;
+
     &.main_card {
-        box-shadow: 2px 2px 10px blue, 
-                -2px -2px 10px yellow, 
-                -2px 2px 10px red, 
-                2px -2px 10px black;
+        box-shadow: 2px 2px 10px blue,
+            -2px -2px 10px yellow,
+            -2px 2px 10px red,
+            2px -2px 10px black;
         min-height: 5rem;
         max-height: 10%;
         height: 1vw;
         width: 100%;
     }
-    & h4, & h5 {
+
+    & h4,
+    & h5 {
         font-size: 1rem;
         text-align: center;
     }
+
     & .material-symbols-outlined {
         font-size: 0.9rem;
     }
@@ -334,7 +344,7 @@ main {
     padding: 1rem;
     border-radius: 2rem;
     line-height: 1rem;
-    background: linear-gradient(60deg, rgba(245,255,0,0.05) 0%, rgba(0,5,255,0.02) 50%);
+    background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
     box-shadow: 0px 0px 10px lightgray;
     text-shadow: 1px 1px 1px lightgreen;
 }
@@ -358,7 +368,7 @@ footer nav {
     width: 60vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;    
+    grid-template-rows: 1fr;
 }
 
 footer nav h4 a {
@@ -378,7 +388,7 @@ footer nav a {
 }
 
 @media only screen and (max-width: 1000px) {
-    
+
     #head_main_link_logo img {
         padding: 0px;
         max-width: 90px;
@@ -397,7 +407,7 @@ footer nav a {
         text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
         color: gray;
     }
-    
+
     header .menu_item {
         border: none;
         background-color: transparent;
@@ -430,14 +440,15 @@ footer nav a {
     }
 
     #breadcrumb {
-        margin:  0 auto;
+        margin: 0 auto;
         width: 100%;
         top: 0;
         user-select: none;
+
         & a {
             font-family: 'Courier New', Courier, monospace;
         }
-    } 
+    }
 
     footer * {
         width: 100%;
@@ -469,6 +480,7 @@ footer nav a {
         align-items: center;
         justify-items: center;
         width: 100%;
+
         & h4 a {
             font-weight: bolder;
             line-height: 2rem;
