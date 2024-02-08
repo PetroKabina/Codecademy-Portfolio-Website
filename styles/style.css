@@ -427,7 +427,7 @@ footer nav a {
     header a.menu_item {
         border: none;
         background-color: transparent;
-        text-shadow: 1px 1px 3px wheat;
+        text-shadow: none;
         text-decoration-line: underline;
         position: relative;
     }

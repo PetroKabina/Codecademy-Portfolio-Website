@@ -103,7 +103,7 @@ const mouseEnter = event => {
 }
 
 const mouseLeave = event => {
-    event.target.style.color = randColorPicker();
+    event.target.style.color = randColorPicker(100,180,120,180,80,150,120,180);
     event.target.style.textShadow = "";
     event.target.style.filter = "";
 }
@@ -174,6 +174,7 @@ for (let item of menus) {
     const spread = rand(10, 20);
     const color = randColorPicker(150,255,200,255,150,255,150,255);
     item.style.textShadow = top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + top + 'px ' + -left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + -left + 'px ' + spread + 'px ' + color;
+    item.style.color = randColorPicker(10,50,10,50,80,150,20,80);
 }
 
 for (let item of footerMenuButtons) {
