@@ -64,7 +64,7 @@ nav menu ul {
 }
 
 h1 {
-    text-shadow: 10px 10px 10px wheat, 10px -10px 10px whitesmoke, -10px 10px 10px honeydew, -10px -10px 10px aqua;
+    text-shadow: 10px 10px 20px wheat, 10px -10px 15px whitesmoke, -10px 10px 5px honeydew, -10px -10px 5px aqua;
     overflow: visible;
     min-width: 1000px;
     display: inline;
@@ -165,7 +165,6 @@ header nav {
     grid-area: tod;
     line-height: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 1px 1px 2px wheat;
     font-size: 1rem;
     justify-self: center;
     text-align: center;
@@ -181,7 +180,6 @@ header nav .menu_item {
     user-select: none;
     border: solid;
     background-color: transparent;
-    text-shadow: 1px 1px 3px wheat;
     text-decoration-line: underline;
     position: relative;
 }
@@ -200,6 +198,8 @@ main {
 #breadcrumb {
     display: inline-flex;
     position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
     margin: 0 auto;
     width: 100%;
     top: 0;
@@ -228,7 +228,7 @@ main {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 
     &::after {
-        content: " ";
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
@@ -310,6 +310,7 @@ main {
     border: 2px white solid;
     padding: 2%;
     margin: 2vw auto 2vw auto;
+    height: 100px;
     max-width: 40%;
     max-height: 25%;
     min-width: 150px;
@@ -336,7 +337,22 @@ main {
     & .material-symbols-outlined {
         font-size: 0.9rem;
     }
+    
+    &:hover {
+        border-width: 1px;
+    }
 }
+
+/*.card::before {
+    content: "";
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: black;
+}*/
 
 #content .card_desc p {
     color: darkgreen;
@@ -408,13 +424,12 @@ footer nav a {
         color: gray;
     }
 
-    header .menu_item {
+    header a.menu_item {
         border: none;
         background-color: transparent;
         text-shadow: 1px 1px 3px wheat;
         text-decoration-line: underline;
         position: relative;
-        border-radius: 50px;
     }
 
     #head_menu {
@@ -422,32 +437,93 @@ footer nav a {
         margin: 0;
         min-width: 60%;
         display: inline-flex;
+        font-size: 1rem;
     }
+
+    /*#head_menu a.menu_item {
+        text-shadow: none;
+        text-shadow: none;
+        border: none;
+    }*/
 
     #tod {
         left: 0px;
         margin: 0px;
-        padding: 0px;
+        padding: 0px 0px 0px 50px;
         position: relative;
+        justify-self: flex-start;
+        text-align: left;
+        max-height: 20vh;
+        line-height: 0.1rem;
+        font-size: 0.75rem;
     }
 
     main {
         width: 100%;
-
-        & #content {
-            font-size: 1rem;
-        }
     }
 
     #breadcrumb {
-        margin: 0 auto;
         width: 100%;
-        top: 0;
-        user-select: none;
+        left: 0px;
+        margin: 0px;
+        position: relative;
 
         & a {
             font-family: 'Courier New', Courier, monospace;
         }
+    }
+
+    #content_letter {
+        min-width: 100%;
+        background:  rgba(238, 237, 232, 1);
+        &::after {
+            content: "";
+            visibility: hidden;
+            top: 0;
+            left: 0;
+            height: 0px;
+            width: 0px;
+            z-index: 2;
+            border-width: 3vw;
+            border-style: solid;
+            border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
+            filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
+        }
+    }
+
+    #content {
+
+        & p {
+            font-size: 1rem;
+        line-height: 1.5rem;
+        max-width: 90vw;
+        min-width: 60vw;
+        line-break: strict;
+        border-bottom: white solid;
+        }
+        
+        & p img {
+            max-width: 150px;
+        }
+
+        & h2, h3, h4, a {
+            font-size: 1.2rem;
+            font-family: inherit;
+        }
+
+        & .card {
+            box-shadow: none;
+        }
+
+        & .card p {
+            font-size: 0.75rem;
+        }
+
+    }
+
+    #content>p:first-of-type::first-letter {
+        font-family: inherit;
+        font-size: 1rem;
     }
 
     footer * {
