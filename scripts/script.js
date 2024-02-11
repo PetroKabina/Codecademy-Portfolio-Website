@@ -51,7 +51,7 @@ const clockTick = () => {
         case 6:
             dayName = 'Saturday';
             break;
-        case 7:
+        case 0:
             dayName = 'Sunday';
             break;
         default: undefined;
@@ -78,7 +78,7 @@ const applyEffectsOnClass = (className) => {
 // here we run the clockTick function every 100ms
 setInterval(clockTick, 100);
 
-// INTERACTIVE ELEMENTS SELECTORS
+// SELECTORS DECLARATION
 const tod = document.getElementById("tod"),
     mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
     footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
@@ -86,32 +86,25 @@ const tod = document.getElementById("tod"),
     links = document.querySelectorAll('main a'),
     cards = document.getElementsByClassName("card"),
     cardDescriptions = document.getElementsByClassName("card_desc"),
-    expandButton = document.getElementsByClassName("expand_button"),
-    menus = document.querySelectorAll('nav, menu');
+    expandButtons = document.getElementsByClassName("card_expand"),
+    menus = document.querySelectorAll('footer menu, main menu');
 
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
 
-/*const expandCard = event => {
-    event.target.style.minHeigth = 'fit-content';
-    event.target.style.overflow = 'visible';
-}*/
-
 const mouseEnter = event => {
-    event.target.style.textShadow = "1px 1px 1px black";
-    event.target.style.color = "lightgray";
-    event.target.style.filter = "saturate(0)";
+    event.target.classList.add("nav_hovered");
 }
 
 const mouseLeave = event => {
-    event.target.style.color = randColorPicker(100,180,120,180,80,150,120,180);
-    event.target.style.textShadow = "";
-    event.target.style.filter = "";
+    event.target.classList.remove("nav_hovered");
 }
 
-//expand card
-/*for (let item of cards) {
-    item.onmouseclick = expandCard;
-}*/
+// cards effets
+for (let item of cards) {
+    //item.onmousedown = expandCard;
+    //item.onmouseup = collapseCard;
+    //item.onmouseenter = expandButtonsContent;
+}
 
 //if (window.matchMedia("(min-width: 1000px)").matches) {
 // mouse hover effects
@@ -133,19 +126,8 @@ applyEffectsOnClass('menu_item');
 
 // MAIN MENU EFFECTS
 for (let item of mainMenuButtons) {
-    /*if (window.matchMedia("only screen and (max-width: 1000px)").matches) {
-    //DISABLE RANDOMITY
-        item.style.color = 'green';
-        item.style.backgroundColor = 'black';
-        item.style.margin = "0px";
-        item.style.padding = "0px";
-        item.style.zIndex = 0;
-        item.style.border = "none";
-        item.style.borderRadius = '0px';
-        item.style.top = '0px';
-    } else {*/
     // RANDOM VALUES DECLARATION
-    let top = rand(0, 20),
+    let top = rand(10, 20),
         zIndex = rand(0, mainMenuButtons.length),
         radius = {
             lt: rand(80, 40),
@@ -153,11 +135,10 @@ for (let item of mainMenuButtons) {
             lb: rand(80, 40),
             rb: rand(80, 40),
         },
-        margin = rand(-5, 0),
+        margin = rand(-10, 0),
         padding = 5 + rand(-15, 40);
-    // RANDOMIZING THE LAYOUT
     item.style.textShadow = 'none';
-    item.style.color = randColorPicker(100,180,120,180,80,150,120,180);
+    item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
     item.style.backgroundColor = randColorPicker();
     item.style.margin = margin + "px";
     item.style.padding = padding + "px";
@@ -165,7 +146,6 @@ for (let item of mainMenuButtons) {
     item.style.border = "solid 3px " + randColorPicker();
     item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
     item.style.top = top + 'px';
-    //}
 }
 
 for (let item of menus) {
