@@ -79,6 +79,7 @@ const applyEffectsOnClass = (className) => {
 setInterval(clockTick, 100);
 
 // SELECTORS DECLARATION
+
 const tod = document.getElementById("tod"),
     mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
     footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
@@ -87,7 +88,7 @@ const tod = document.getElementById("tod"),
     cards = document.getElementsByClassName("card"),
     cardDescriptions = document.getElementsByClassName("card_desc"),
     expandButtons = document.getElementsByClassName("card_expand"),
-    menus = document.querySelectorAll('footer menu, main menu');
+    menus = document.querySelectorAll('footer menu, main menu, h1');
 
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
 
@@ -121,13 +122,14 @@ for (let item of links) {
         item.onmouseleave = mouseLeave; 
     //}
 }
-
 applyEffectsOnClass('menu_item');
+    // MAIN MENU EFFECTS
+window.addEventListener("resize", function() {
+    
+    for (let item of mainMenuButtons) {
 
-// MAIN MENU EFFECTS
-for (let item of mainMenuButtons) {
     // RANDOM VALUES DECLARATION
-    let top = rand(10, 20),
+        let top = rand(10, 35),
         zIndex = rand(0, mainMenuButtons.length),
         radius = {
             lt: rand(80, 40),
@@ -137,16 +139,33 @@ for (let item of mainMenuButtons) {
         },
         margin = rand(-10, 0),
         padding = 5 + rand(-15, 40);
-    item.style.textShadow = 'none';
-    item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
-    item.style.backgroundColor = randColorPicker();
-    item.style.margin = margin + "px";
-    item.style.padding = padding + "px";
-    item.style.zIndex = zIndex;
-    item.style.border = "solid 3px " + randColorPicker();
-    item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
-    item.style.top = top + 'px';
-}
+
+        if (window.innerWidth >= 1000) {
+            item.style.textShadow = '';
+            item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
+            item.style.backgroundColor = randColorPicker();
+            item.style.margin = margin + "px";
+            item.style.padding = padding + "px";
+            item.style.zIndex = zIndex;
+            item.style.border = "solid 3px " + randColorPicker();
+            item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
+            item.style.top = top + 'px';
+        } else {
+            console.log(window.innerWidth);
+            item.style.textShadow = 'none';
+            item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
+            item.style.backgroundColor = randColorPicker();
+            item.style.margin = "0px";
+            item.style.padding = "0px";
+            item.style.zIndex = "0";
+            item.style.border = "solid 3px " + randColorPicker();
+            item.style.borderRadius = "0px";
+            item.style.top = "0px"
+        }
+    }
+})
+
+//document.body.onresize = resize;
 
 for (let item of menus) {
     const top = rand(1,5);
