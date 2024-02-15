@@ -7,32 +7,54 @@ const rand = (min, max) => {
     }
 }
 
-const randColorPicker = (rMin=20, rMax=80, gMin=20, gMax=80, bMin=20, bMax=80) => {
+const randColorPicker = (rMin = 20, rMax = 80, gMin = 20, gMax = 80, bMin = 20, bMax = 80) => {
     let rRand = rand(rMin, rMax);
     let gRand = rand(gMin, gMax);
     let bRand = rand(bMin, bMax);
     return "rgb(" + rRand + "," + gRand + "," + bRand + ")";
 }
 
+// SELECTORS DECLARATION
+
+const tod = document.getElementById("tod"),
+    mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
+    footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
+    firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter"),
+    links = document.querySelectorAll('main a'),
+    cards = document.getElementsByClassName("card"),
+    cardDescriptions = document.getElementsByClassName("card_desc"),
+    expandButtons = document.getElementsByClassName("card_expand"),
+    menus = document.querySelectorAll('footer menu, main menu, h1'),
+    footerCopyright = document.getElementById('footer_copyright');
+
+// DATE
+let dayName = undefined;
+const time = () => {
+    const currentTime = new Date();
+    return {
+        dow: currentTime.getDay(),
+        month: currentTime.getMonth() + 1,
+        day: currentTime.getDate(),
+        year: currentTime.getFullYear(),
+        addNull(num) {
+            return num < 10 ? '0' + num : num
+        },
+        hours: currentTime.getHours(),//this.addNull(currentTime.getHours()),
+        minutes: currentTime.getMinutes(),//this.addNull(currentTime.getMinutes()),
+        seconds: currentTime.getSeconds(),//this.addNull(currentTime.getSeconds()),
+        offsetFormat: ' (GMT' + (currentTime.getTimezoneOffset() < 0 ? '+' + -(currentTime.getTimezoneOffset() / 60) : (currentTime.getTimezoneOffset() / 60)) + ')',
+    }
+}
+
 const clockTick = () => {
-    let currentTime = new Date(),
-        dow = currentTime.getDay(),
-        month = currentTime.getMonth() + 1,
-        day = currentTime.getDate(),
-        year = currentTime.getFullYear(),
-        hours = currentTime.getHours(),
-        minutes = currentTime.getMinutes(),
-        seconds = currentTime.getSeconds(),
-        offset = currentTime.getTimezoneOffset(),
-        dayName = undefined;
     const addNull = num => {
         return num < 10 ? '0' + num : num;
     }
 
-    hours = addNull(hours);
-    minutes = addNull(minutes);
-    seconds = addNull(seconds);
-    switch (dow) {
+    let hours = addNull(time().hours);
+    let minutes = addNull(time().minutes);
+    let seconds = addNull(time().seconds);
+    switch (time().dow) {
         case 1:
             dayName = 'Monday';
             break;
@@ -57,38 +79,29 @@ const clockTick = () => {
         default: undefined;
     }
 
-    let offsetFormat = ' (GMT' + (offset < 0 ? '+' + -(offset / 60) : (offset / 60)) + ')';
     const tod = document.getElementById('tod');
     // here we get the element with the id of "date" and change the content to the text variable we made above
-    if (window.matchMedia("only screen and (max-width: 1000px)").matches) {
-        var todText = (dayName + ', <br>' + month + "/" + day + "/" + year + '<br>' + '' + hours + ':' + minutes + ':' + seconds + ' ' + offsetFormat);
-    } else {
-        var todText = (dayName + ', ' + month + "/" + day + "/" + year + ' ' + '' + hours + ':' + minutes + ':' + seconds + ' ' + offsetFormat);
+    if (window.matchMedia("only screen and (min-width: 1201px)").matches) {
+        var todText = (dayName + ', <br>' + time().month + "/" + time().day + "/" + time().year + '<br>' + '' + hours + ':' + minutes + ':' + seconds + ' ' + time().offsetFormat);
+    } else if (window.matchMedia("only screen and (max-width: 1200px)").matches) {
+        var todText = (dayName + ', ' + time().month + "/" + time().day + "/" + time().year + ' ' + '' + hours + ':' + minutes + ':' + seconds + ' ' + time().offsetFormat);
     }
     tod.innerHTML = todText;
 }
 
-const applyEffectsOnClass = (className) => {
+const dynEffects = (className) => {
     var elements = document.getElementsByClassName(className);
     for (let item of elements) {
         item.onmouseenter = mouseEnter;
         item.onmouseleave = mouseLeave;
     }
 }
+
 // here we run the clockTick function every 100ms
 setInterval(clockTick, 100);
 
-// SELECTORS DECLARATION
-
-const tod = document.getElementById("tod"),
-    mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
-    footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
-    firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter"),
-    links = document.querySelectorAll('main a'),
-    cards = document.getElementsByClassName("card"),
-    cardDescriptions = document.getElementsByClassName("card_desc"),
-    expandButtons = document.getElementsByClassName("card_expand"),
-    menus = document.querySelectorAll('footer menu, main menu, h1');
+// FOOTER COPYRIGHT
+footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
 
@@ -98,6 +111,63 @@ const mouseEnter = event => {
 
 const mouseLeave = event => {
     event.target.classList.remove("nav_hovered");
+}
+
+const tap = event => {
+    event.target.classList.add("nav_hovered");
+}
+
+const unTap = event => {
+    event.target.classList.remove("nav_hovered");
+}
+
+const effectsMainMenuButtons = () => {
+    for (let item of mainMenuButtons) {
+
+        // RANDOM VALUES DECLARATION
+        let top = rand(10, 35),
+            zIndex = rand(0, mainMenuButtons.length),
+            radius = {
+                lt: rand(80, 40),
+                rt: rand(80, 40),
+                lb: rand(80, 40),
+                rb: rand(80, 40),
+            },
+            margin = rand(-10, 0),
+            padding = 5 + rand(-15, 40);
+
+        if (window.innerWidth >= 1200 && screen.orientation.type === 'landscape-primary') {
+            item.style.textShadow = '';
+            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
+            item.style.backgroundColor = randColorPicker();
+            item.style.margin = margin + "px";
+            item.style.padding = padding + "px";
+            item.style.zIndex = zIndex;
+            item.style.border = "solid 3px " + randColorPicker();
+            item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
+            item.style.top = top + 'px';
+        } else if (window.innerWidth < 1200 && window.innerWidth >= 1000  ) {
+            item.style.textShadow = 'none';
+            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
+            item.style.backgroundColor = randColorPicker();
+            item.style.margin = "0px";
+            item.style.padding = "0px";
+            item.style.zIndex = "0";
+            item.style.border = "solid 3px " + randColorPicker();
+            item.style.borderRadius = "0px";
+            item.style.top = "0px"
+        } else if (window.innerWidth < 1000 ) {
+            item.style.textShadow = 'none';
+            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
+            item.style.backgroundColor = randColorPicker();
+            item.style.margin = "0px";
+            item.style.padding = "0px";
+            item.style.zIndex = "0";
+            item.style.border = "solid 3px " + randColorPicker();
+            item.style.borderRadius = "0px";
+            item.style.top = "0px"
+        }
+    }
 }
 
 // cards effets
@@ -116,64 +186,32 @@ for (let item of links) {
         item.onmouseenter = mouseEnter;
         item.onmouseleave = mouseLeave; 
     } else {*/
-        item.style.color = randColorPicker();
-        item.style.textDecoration = 'underline';
-        item.onmouseenter = mouseEnter;
-        item.onmouseleave = mouseLeave; 
+    item.style.color = randColorPicker();
+    item.style.textDecoration = 'underline';
+    item.onmouseenter = mouseEnter;
+    item.onmouseleave = mouseLeave;
     //}
 }
-applyEffectsOnClass('menu_item');
-    // MAIN MENU EFFECTS
-window.addEventListener("resize", function() {
-    
-    for (let item of mainMenuButtons) {
 
-    // RANDOM VALUES DECLARATION
-        let top = rand(10, 35),
-        zIndex = rand(0, mainMenuButtons.length),
-        radius = {
-            lt: rand(80, 40),
-            rt: rand(80, 40),
-            lb: rand(80, 40),
-            rb: rand(80, 40),
-        },
-        margin = rand(-10, 0),
-        padding = 5 + rand(-15, 40);
+// INITIAL EFFECTS
+effectsMainMenuButtons();
+// DINAMIC EFFECTS
+dynEffects('menu_item')
+const delay = 1;
 
-        if (window.innerWidth >= 1000) {
-            item.style.textShadow = '';
-            item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
-            item.style.backgroundColor = randColorPicker();
-            item.style.margin = margin + "px";
-            item.style.padding = padding + "px";
-            item.style.zIndex = zIndex;
-            item.style.border = "solid 3px " + randColorPicker();
-            item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
-            item.style.top = top + 'px';
-        } else {
-            console.log(window.innerWidth);
-            item.style.textShadow = 'none';
-            item.style.color = randColorPicker(150,180,150,180,150,255,150,180);
-            item.style.backgroundColor = randColorPicker();
-            item.style.margin = "0px";
-            item.style.padding = "0px";
-            item.style.zIndex = "0";
-            item.style.border = "solid 3px " + randColorPicker();
-            item.style.borderRadius = "0px";
-            item.style.top = "0px"
-        }
-    }
-})
-
-//document.body.onresize = resize;
+window.onresize = function () {
+    console.log([window.resizedFinished, delay])
+    clearTimeout(window.resizedFinished);
+    window.resizedFinished = setTimeout(effectsMainMenuButtons(), delay)
+};
 
 for (let item of menus) {
-    const top = rand(1,5);
-    const left = rand(1,5);
+    const top = rand(1, 5);
+    const left = rand(1, 5);
     const spread = rand(10, 20);
-    const color = randColorPicker(150,255,200,255,150,255,150,255);
+    const color = randColorPicker(150, 255, 200, 255, 150, 255, 150, 255);
     item.style.textShadow = top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + top + 'px ' + -left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + -left + 'px ' + spread + 'px ' + color;
-    item.style.color = randColorPicker(10,50,10,50,80,150,20,80);
+    item.style.color = randColorPicker(10, 50, 10, 50, 80, 150, 20, 80);
 }
 
 for (let item of footerMenuButtons) {

@@ -25,24 +25,37 @@
 }
 
 /* GENERAL FORMAT */
+
+/** {
+    border: pink solid;
+}*/
+
 body {
-    position: absolute;
     height: auto;
     top: 0px;
     left: 0px;
     padding: 0;
     margin: 0;
-    width: 100%;
+    min-width: 100%;
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
     display: grid;
     row-gap: 0;
     grid-template:
-        "head" 25vh
+        "head" 30vh
         "main" auto
         "foot" 10vh
         / 100%
     ;
+
+}
+
+header,
+main,
+footer {
+    min-height: max-content;
+    position: relative;
+    max-width: 100%;
 }
 
 nav section {
@@ -64,12 +77,11 @@ nav menu ul {
 }
 
 h1 {
-    text-overflow: ellipsis;
-    overflow: visible;
+    overflow:visible;
     height: max-content;
-    width: max-content;
     display: inline;
     white-space: nowrap;
+
 }
 
 h2,
@@ -115,6 +127,7 @@ header {
     font-weight: 900;
     font-size: 1.75rem;
     grid-area: head;
+    height: max-content;
     width: 100%;
     /*border: 3px rgb(66, 103, 100) solid;*/
     /*background-color: rgb(106, 163, 154);*/
@@ -127,9 +140,8 @@ header nav {
     display: grid;
     row-gap: 0;
     grid-template:
-        "img title title" 10vh
-        "menu menu menu" 12vh
-        "tod tod tod" 3vh
+        "img title title tod" 10vh
+        "menu menu menu menu" 20vh
         / 100px 5fr 1fr;
 }
 
@@ -140,7 +152,7 @@ header nav > * {
 #head_title {
     margin: 0 auto;
     grid-area: title;
-    letter-spacing: 1cap;
+    letter-spacing: .3cap;
     & a {
         color: black;
     }
@@ -160,7 +172,7 @@ header nav > * {
 #head_menu {
     margin: 0 auto;
     grid-area: menu;
-    width: 100%;
+    max-width: 100%;
     z-index: 1;
 }
 
@@ -174,11 +186,13 @@ header nav > * {
     grid-area: tod;
     line-height: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    justify-self: center;
+    font-size: 1.5rem;
+    line-height: 0.1rem;
+    justify-self: right;
     text-align: center;
-    min-width: 500px;
+    max-width: max-content;
     overflow: visible;
+    position: relative;
     padding: 2vw;
     z-index: 1;
 }
@@ -195,8 +209,6 @@ header .menu_item {
 
 main {
     grid-area: main;
-    position: static;
-    width: 100vw;
     min-height: fit-content;
     overflow-y: visible;
     /*border: 3px rgb(172, 124, 78) solid;*/
@@ -210,6 +222,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     margin: 0 auto;
+    padding: 0px 0px 0px 10%;
     width: 100%;
     top: 0;
     user-select: none;
@@ -229,9 +242,7 @@ main {
 #content_letter {
     position: relative;
     overflow-x: hidden;
-    width: 60vw;
-    max-width: 80%;
-    min-width: 500px;
+    width: 60%;
     margin: 0 auto 5vh;
     background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
@@ -310,7 +321,7 @@ main {
 #content .card {
     flex-shrink: 0;
     font-size: 0.9rem;
-    overflow: hidden;
+    overflow: visible;
     text-align: center;
     box-shadow: 2px 2px 5px blue,
         -2px -2px 5px yellow,
@@ -319,7 +330,7 @@ main {
     border: 2px white solid;
     padding: 2%;
     margin: 2vw auto 2vw auto;
-    height: 100px;
+    /*height: 100px;*/
     max-width: 40%;
     max-height: 25%;
     min-width: 150px;
@@ -346,6 +357,10 @@ main {
     & .material-symbols-outlined {
         font-size: 0.9rem;
     }
+
+    & p {
+        width: 80%;
+     }
     
 }
 
@@ -387,14 +402,14 @@ footer {
 
 footer nav {
     margin: 0 auto;
-    width: 60vw;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
 }
 
-footer nav h4 {
+footer nav h4 a {
     font-family: warmin, Arial, Helvetica, sans-serif;
+    text-decoration: underline;
     font-size: 1.5rem;
     line-height: 1rem;
     font-weight: bold;
@@ -409,6 +424,14 @@ footer nav a {
     text-decoration: none;
 }
 
+#footer_copyright {
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    right: 0px;
+    bottom: 0px;
+    position: relative;
+}
+
 /* RESIZE EFFECTS SECTION */
 .nav_hovered {
     text-shadow: 1px 1px 1px black;
@@ -416,22 +439,11 @@ footer nav a {
     filter: saturate(0);
 }
 
-.main_menu_items_mobile {
-    top: 0px;
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 0px;
-}
+
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 1000px) {
-
-    header {
-        min-height: fit-content;
-    }
+@media only screen and (max-width: 1201px ) and (min-width: 1001px) {
 
     #head_main_link_logo img {
         padding: 0px;
@@ -443,47 +455,202 @@ footer nav a {
         padding: 0;
         white-space: unset;
         position: relative;
-        line-break: auto;
+        line-break: unset;
         margin: 5px;
         font-size: 1.5rem;
-        min-width: 50%;
-        max-width: 500px;
+        min-height: fit-content;
         text-decoration: overline underline;
         text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
         color: gray;
     }
 
-    header .menu_item {
-        top: 0px;
-        z-index: 0;
-        margin: 0;
-        padding: 0;
-        border: none;
-        border-radius: 0px;
-    }
-
-    #head_menu {
-        left: 0;
-        margin: 0;
-        min-width: 60%;
-        display: inline-flex;
-        font-size: 1rem;
+    header nav {
+        display: grid;
+        row-gap: 0;
+        grid-template:
+            "img title title" 10vh
+            "menu menu menu" 10vh
+            "tod tod tod" 10vh
+            / 100px 5fr 1fr;
     }
 
     #tod {
         left: 0px;
         margin: 0px;
-        padding: 0px 0px 0px 50px;
-        position: relative;
+        padding: 50px 0px 0px 50px;
         justify-self: flex-start;
         text-align: left;
         max-height: 20vh;
         line-height: 0.1rem;
-        font-size: 0.75rem;
+        font-size: 1rem;
     }
 
-    main {
+    #breadcrumb {
+        padding: 0px 0px 0px 10%;
         width: 100%;
+        margin: 0px;
+        position: relative;
+
+        & a {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    }
+
+    #content_letter {
+        width: 100%;
+        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0px;
+            width: 0px;
+            z-index: 2;
+            border-width: 3vw;
+            border-style: solid;
+            border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
+            filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
+        }
+    }
+
+    #content {
+
+        & p {
+            font-size: 1rem;
+        line-height: 1.5rem;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 5px;
+        }
+        
+        & p img {
+            max-width: 150px;
+        }
+
+        & h2, h3 {
+            font-size: 1.2rem;
+            font-family: inherit;
+            line-height: 4rem;
+        }
+
+        & h4 {
+            font-size: 1rem;
+        }      
+
+        & .card {
+            max-width: 30%;
+            min-height: 150px;
+        }
+
+        & .card p {
+            font-size: 0.75rem;
+        }
+
+    }
+
+    #content>p:first-of-type::first-letter {
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    footer nav section {
+
+        width: 80%;
+
+        &::before {
+            content: "__________________________";
+            position: relative;
+            margin: 0 auto;
+            text-shadow: 1px 1px 1px wheat;
+            line-height: 3rem;
+        }
+
+        & menu li {
+            left: 0;
+            width: 60%;
+            margin: 0 auto;
+            padding-left: 20%;
+            text-align: left;
+        }
+    }
+
+    footer nav {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        align-items: center;
+        justify-items: center;
+
+        & h4 a {
+            font-weight: bold;
+            line-height: 2.5rem;
+            font-size: 1.5rem;
+            text-decoration: underline;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        & a {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1000px ) {
+
+    #head_main_link_logo img {
+        padding: 0px;
+        max-width: 90px;
+        height: auto;
+    }
+
+    h1 {
+        padding: 0;
+        white-space: unset;
+        position: relative;
+        line-break:unset;
+        margin: 5px;
+        font-size: 1.5rem;
+        min-height: fit-content;
+        max-width: min-content;
+        text-decoration: overline underline;
+        text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
+        color: gray;
+    }
+
+    header nav {
+        display: grid;
+        row-gap: 0;
+        grid-template:
+            "img title title" 10vh
+            "menu menu tod" 20vh
+            / 100px 1fr 1fr;
+        
+    }
+
+    #head_menu {
+        
+        left: 0px;
+        width: 100%;
+
+        & ul {
+            flex-direction: column;
+            left: 0;
+        } 
+
+    }
+
+    #tod {
+        left: 0px;
+        margin: 0 auto;
+        padding: 50px 0px 0px 50px;
+        text-align: left;
+        max-height: 20vh;
+        line-height: 2rem;
+        font-size: 1.5rem;
     }
 
     #breadcrumb {
@@ -494,12 +661,14 @@ footer nav a {
 
         & a {
             font-family: 'Courier New', Courier, monospace;
+            font-size: 2rem;
         }
     }
 
     #content_letter {
-        min-width: 100%;
+        width: 100%;
         background:  rgba(238, 237, 232, 1);
+        margin: 0 auto;
         &::after {
             content: "";
             visibility: hidden;
@@ -518,17 +687,11 @@ footer nav a {
     #content {
 
         & p {
-            font-size: 1rem;
+        font-size: 1rem;
         line-height: 1.5rem;
-        max-width: 70%;
-        min-width: 60vw;
         margin: 0 auto;
         }
         
-        & a {
-            font-size: 1rem;
-        }
-
         & p img {
             max-width: 150px;
         }
@@ -565,14 +728,17 @@ footer nav a {
     }
 
     footer * {
-        width: 100%;
+        max-width: 100%;
         padding: 0;
         margin: 0;
     }
 
     footer nav section {
+
+        width: 100%;
+
         &::before {
-            content: "__________________________";
+            content: "__________";
             position: relative;
             margin: 0 auto;
             text-shadow: 1px 1px 1px wheat;
@@ -581,22 +747,22 @@ footer nav a {
 
         & menu li {
             left: 0;
-            max-width: 40%;
+            min-width: 80%;
             margin: 0 auto;
             padding-left: 20%;
             text-align: left;
         }
     }
 
+   
     footer nav {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         align-items: center;
         justify-items: center;
-        width: 100%;
 
         & h4 a {
-            font-weight: bolder;
+            font-weight: bold;
             line-height: 2.5rem;
             font-size: 1.5rem;
             text-decoration: underline;
