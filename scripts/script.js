@@ -94,6 +94,8 @@ const dynEffects = (className) => {
     for (let item of elements) {
         item.onmouseenter = mouseEnter;
         item.onmouseleave = mouseLeave;
+        item.onmousedown = tap;
+        item.onmouseup = unTap;
     }
 }
 

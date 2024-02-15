@@ -388,6 +388,7 @@ main {
 
 footer {
     font-size: 1.25rem;
+    display: grid;
     grid-area: foot;
     bottom: 0;
     height: fit-content;
@@ -398,30 +399,30 @@ footer {
     /*border: 3px rgb(0, 109, 109) solid;*/
     background-color: darkcyan;
     bottom: 0px;
-}
+    
+    & nav {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        }
 
-footer nav {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-}
+    & nav h4 a {
+        font-family: warmin, Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+        font-size: 1.5rem;
+        line-height: 1rem;
+        font-weight: bold;
+        color: black;
+    }
 
-footer nav h4 a {
-    font-family: warmin, Arial, Helvetica, sans-serif;
-    text-decoration: underline;
-    font-size: 1.5rem;
-    line-height: 1rem;
-    font-weight: bold;
-    color: black;
-}
-
-footer nav a {
-    line-height: 0.1rem;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
+    & nav a {
+        line-height: 0.1rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+    }
 }
 
 #footer_copyright {
@@ -578,10 +579,8 @@ footer nav a {
     }
 
     footer nav {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-        align-items: center;
-        justify-items: center;
+        align-items: baseline;
+        justify-items: left;
 
         & h4 a {
             font-weight: bold;
