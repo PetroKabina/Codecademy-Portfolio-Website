@@ -14,7 +14,7 @@ const randColorPicker = (rMin = 20, rMax = 80, gMin = 20, gMax = 80, bMin = 20, 
     return "rgb(" + rRand + "," + gRand + "," + bRand + ")";
 }
 
-// SELECTORS DECLARATION
+// DOM SELECTORS DECLARATION
 
 const tod = document.getElementById("tod"),
     mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
@@ -25,7 +25,8 @@ const tod = document.getElementById("tod"),
     cardDescriptions = document.getElementsByClassName("card_desc"),
     expandButtons = document.getElementsByClassName("card_expand"),
     menus = document.querySelectorAll('footer menu, main menu, h1'),
-    footerCopyright = document.getElementById('footer_copyright');
+    footerCopyright = document.getElementById('footer_copyright'),
+    contentImg = document.querySelectorAll('#content img');
 
 // DATE
 let dayName = undefined;
@@ -89,6 +90,9 @@ const clockTick = () => {
     tod.innerHTML = todText;
 }
 
+// here we run the clockTick function every 100ms
+setInterval(clockTick, 100);
+
 const dynEffects = (className) => {
     var elements = document.getElementsByClassName(className);
     for (let item of elements) {
@@ -99,13 +103,18 @@ const dynEffects = (className) => {
     }
 }
 
-// here we run the clockTick function every 100ms
-setInterval(clockTick, 100);
-
 // FOOTER COPYRIGHT
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
+// EVENT HANDLERS
+const resizeImg = event => {
+    event.target.classList.add("content_img_clicked");
+}
+
+const unresizeImg = event => {
+    event.target.classList.remove("content_img_clicked");
+}
 
 const mouseEnter = event => {
     event.target.classList.add("nav_hovered");
@@ -170,6 +179,15 @@ const effectsMainMenuButtons = () => {
             item.style.top = "0px"
         }
     }
+}
+
+// img effects
+for (let item of contentImg) {
+    item.onmousedown = resizeImg;
+}
+
+for (let item of contentImg) {
+    item.onmouseup = unresizeImg;
 }
 
 // cards effets
