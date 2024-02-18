@@ -14,9 +14,9 @@ const randColorPicker = (rMin = 20, rMax = 80, gMin = 20, gMax = 80, bMin = 20, 
     return "rgb(" + rRand + "," + gRand + "," + bRand + ")";
 }
 
-// DOM SELECTORS DECLARATION
-
+// DOM OBJECTS
 const tod = document.getElementById("tod"),
+    bodyOverlay = document.getElementById('body_overlay'),
     mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
     footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
     firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter"),
@@ -109,11 +109,14 @@ footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
 // EVENT HANDLERS
 const resizeImg = event => {
+    bodyOverlay.style.visibility = 'visible';
     event.target.classList.add("content_img_clicked");
 }
 
 const unresizeImg = event => {
     event.target.classList.remove("content_img_clicked");
+    bodyOverlay.style.visibility = 'hidden';
+    document.body.style = "";
 }
 
 const mouseEnter = event => {
@@ -161,10 +164,10 @@ const effectsMainMenuButtons = () => {
             item.style.textShadow = 'none';
             item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
             item.style.backgroundColor = randColorPicker();
-            item.style.margin = "0px";
-            item.style.padding = "0px";
+            item.style.margin = "5px";
+            item.style.padding = "5px";
             item.style.zIndex = "0";
-            item.style.border = "solid 3px " + randColorPicker();
+            item.style.border = "solid 2px " + randColorPicker();
             item.style.borderRadius = "0px";
             item.style.top = "0px"
         } else if (window.innerWidth < 1000 ) {
@@ -174,7 +177,7 @@ const effectsMainMenuButtons = () => {
             item.style.margin = "0px";
             item.style.padding = "0px";
             item.style.zIndex = "0";
-            item.style.border = "solid 3px " + randColorPicker();
+            item.style.border = "solid 1px " + randColorPicker();
             item.style.borderRadius = "0px";
             item.style.top = "0px"
         }
@@ -183,10 +186,7 @@ const effectsMainMenuButtons = () => {
 
 // img effects
 for (let item of contentImg) {
-    item.onmousedown = resizeImg;
-}
-
-for (let item of contentImg) {
+    item.onmousedown  = resizeImg;
     item.onmouseup = unresizeImg;
 }
 
@@ -220,7 +220,7 @@ dynEffects('menu_item')
 const delay = 1;
 
 window.onresize = function () {
-    console.log([window.resizedFinished, delay])
+    //console.log([window.resizedFinished, delay])
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(effectsMainMenuButtons(), delay)
 };

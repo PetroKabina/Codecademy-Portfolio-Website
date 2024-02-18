@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="body_overlay"></div>
     <header>
         <nav>
             <section id="head_main_link_logo">
@@ -32,6 +33,9 @@
                 </menu>
             </section>
             <section id="tod"></section>
+            <section id="dark_mode"><span class="material-symbols-outlined">
+                dark_mode
+                </span></section>
         </nav>
     </header>
     <main>
@@ -40,7 +44,15 @@
             <nav>
                 <menu>
                     <ul id="breadcrumb">
-                        <li><a class="menu_item" href="index.html">MAIN</a></li>
+                        <li><a class="menu_item dropdown_button" href="index.html">MAIN</a>                            
+                            <div class="dropdown_content">
+                                <ul>
+                                    <li><a class="menu_item" href="my-projects.html">My Projects</a></li>
+                                    <li><a class="menu_item" href="library.html">Library</a></li>
+                                    <li><a class="menu_item" href="contacts.html">Contact Me</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li><a class="menu_item" href="contacts.html">CONTACTS</a></li>
                         <li><a class="menu_item" href="#">...</a></li>
                         <!--li><a class="menu_item" href=""></a></li-->

@@ -47,7 +47,6 @@ body {
         "foot" 10vh
         / 100%
     ;
-
 }
 
 header,
@@ -140,8 +139,8 @@ header nav {
     display: grid;
     row-gap: 0;
     grid-template:
-        "img title title tod" 10vh
-        "menu menu menu menu" 20vh
+        "img title title tod dark_mode" 10vh
+        "menu menu menu menu menu" 20vh
         / 100px 5fr 1fr;
 }
 
@@ -197,6 +196,25 @@ header nav > * {
     z-index: 1;
 }
 
+#dark_mode {
+    justify-self: right;
+    text-align: center;
+    min-width: max-content;
+    overflow: visible;
+    position: relative;
+    padding: 2vw;
+    max-width: 0 auto;
+    width: 25px;
+    height: 25px;
+    z-index: 1;
+    
+    &:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+
+}
+
 header .menu_item {
     white-space: nowrap;
     text-align: center;
@@ -228,15 +246,23 @@ main {
     user-select: none;
 }
 
-#breadcrumb li {
+#breadcrumb > li {
     font-family: warmin, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1rem;
 
-    &:not(:last-child)::after {
+    &:not(:first-child)::before {
         content: "→";
         padding: 0 0.5rem;
     }
+}
+
+.dropdown_content {
+    display: none;
+}
+
+a.dropdown_button:hover .dropdown_content {
+    display: block;
 }
 
 #content_letter {
@@ -291,9 +317,6 @@ main {
         border: solid lightgray 1px;
         float: left;
         margin: 15px;
-        &:hover {
-            cursor: all-scroll;
-        }
     }
 
     & .list_icon {
@@ -437,6 +460,21 @@ footer {
 }
 
 /* EFFECTS SECTION */
+#body_overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    display: block;
+    opacity: 50%;
+    z-index: 999;
+}
+
 .nav_hovered {
     text-shadow: 1px 1px 1px black;
     color: lightgreen;
@@ -444,7 +482,12 @@ footer {
 }
 
 .content_img_clicked {
-    min-width: 500px;
+    position: fixed;
+    top: 10vw;
+    left: 10vw;
+    min-width: 50%;
+    margin: auto;
+    z-index: 1000;
 }
 
 
@@ -477,7 +520,7 @@ footer {
         grid-template:
             "img title title" 10vh
             "menu menu menu" 10vh
-            "tod tod tod" 10vh
+            "tod tod dark_mode" 10vh
             / 100px 5fr 1fr;
     }
 
@@ -500,7 +543,7 @@ footer {
 
         & a {
             font-family: 'Courier New', Courier, monospace;
-        }
+        }       
     }
 
     #content_letter {
@@ -533,7 +576,7 @@ footer {
         padding: 5px;
         }
         
-        & p img {
+        & p .content_img {
             max-width: 150px;
         }
 
@@ -630,7 +673,7 @@ footer {
         display: grid;
         row-gap: 0;
         grid-template:
-            "img title title" 10vh
+            "img title dark_mode" 10vh
             "menu menu tod" 20vh
             / 100px 1fr 1fr;
         
