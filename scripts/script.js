@@ -26,7 +26,15 @@ const tod = document.getElementById("tod"),
     expandButtons = document.getElementsByClassName("card_expand"),
     menus = document.querySelectorAll('footer menu, main menu, h1'),
     footerCopyright = document.getElementById('footer_copyright'),
-    contentImg = document.querySelectorAll('#content img');
+    contentImg = document.querySelectorAll('#content img'),
+    toggleLightDarkMode = document.getElementById('dark_mode');
+
+// LIGHT/DARK MODE 
+
+
+<span class="material-symbols-outlined">
+light_mode
+</span>
 
 // DATE
 let dayName = undefined;
@@ -107,6 +115,7 @@ const dynEffects = (className) => {
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
 //firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
+
 // EVENT HANDLERS
 const resizeImg = event => {
     bodyOverlay.style.visibility = 'visible';
@@ -183,6 +192,9 @@ const effectsMainMenuButtons = () => {
         }
     }
 }
+
+// light/dark mode event
+
 
 // img effects
 for (let item of contentImg) {
