@@ -27,14 +27,8 @@ const tod = document.getElementById("tod"),
     menus = document.querySelectorAll('footer menu, main menu, h1'),
     footerCopyright = document.getElementById('footer_copyright'),
     contentImg = document.querySelectorAll('#content img'),
-    toggleLightDarkMode = document.getElementById('dark_mode');
-
-// LIGHT/DARK MODE 
-
-
-<span class="material-symbols-outlined">
-light_mode
-</span>
+    lightDarkModeButton = document.getElementById('dark_mode_toggler'),
+    rootElement = document.querySelector(':root');
 
 // DATE
 let dayName = undefined;
@@ -114,9 +108,8 @@ const dynEffects = (className) => {
 // FOOTER COPYRIGHT
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
-//firstContentPLetter.style.color = "rgb(" + rand(50, 100) + "," + rand(50, 100) + "," + rand(50, 100) + ")";
-
 // EVENT HANDLERS
+
 const resizeImg = event => {
     bodyOverlay.style.visibility = 'visible';
     event.target.classList.add("content_img_clicked");
@@ -142,6 +135,16 @@ const tap = event => {
 
 const unTap = event => {
     event.target.classList.remove("nav_hovered");
+}
+
+const toggleLightDarkMode = () => {
+    if (rootElement.style.colorScheme === 'dark') {
+        rootElement.style.colorScheme = 'light';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'        
+    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '') {
+        rootElement.style.colorScheme = 'dark';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
+    }
 }
 
 const effectsMainMenuButtons = () => {
@@ -193,8 +196,8 @@ const effectsMainMenuButtons = () => {
     }
 }
 
-// light/dark mode event
-
+// dark/light mode toggler
+lightDarkModeButton.onclick = toggleLightDarkMode;
 
 // img effects
 for (let item of contentImg) {
