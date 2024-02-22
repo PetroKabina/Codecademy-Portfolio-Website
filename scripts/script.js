@@ -138,13 +138,19 @@ const unTap = event => {
 }
 
 const toggleLightDarkMode = () => {
-    if (rootElement.style.colorScheme === 'dark') {
-        rootElement.style.colorScheme = 'light';
-        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'        
-    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '') {
-        rootElement.style.colorScheme = 'dark';
+
+    let body = document.body;
+
+    console.log(body.className)
+
+    if (body.className === 'light_mode') {
+        body.className = 'dark_mode';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
+    } else if (body.className === 'dark_mode') {
+        body.className = 'light_mode';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'
     }
+
 }
 
 const effectsMainMenuButtons = () => {
@@ -221,7 +227,7 @@ for (let item of links) {
         item.onmouseenter = mouseEnter;
         item.onmouseleave = mouseLeave; 
     } else {*/
-    item.style.color = randColorPicker();
+    /*item.style.color = randColorPicker();*/
     item.style.textDecoration = 'underline';
     item.onmouseenter = mouseEnter;
     item.onmouseleave = mouseLeave;

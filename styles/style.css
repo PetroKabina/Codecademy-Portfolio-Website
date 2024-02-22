@@ -26,106 +26,9 @@
 
 /* GENERAL FORMAT */
 
-/** {
-    border: pink solid;
-}*/
-
-/* COLORING */
-
-/* LIGHT MODE */
-
-:root {
-    color-scheme: light;
-}
-
-#dark_mode_toggler span {
-    justify-self: right;
-    text-align: center;
-    min-width: max-content;
-    overflow: visible;
-    position: relative;
-    padding: 2vw;
-    width: min-content;
-    height: min-content;
-    z-index: 1;
-
-    &:hover {
-        cursor: pointer;
-        box-shadow: -1px 1px 10px black;
-    }
-
-}
-
-@media (prefers-color-scheme: light) {
-    header {
-
-        background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
-
-        & .menu_item {
-            background-color: transparent;
-        }
-    }
-
-    main {
-        background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
-    }
-
-    #content-letter {
-        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
-
-        & .card_desc p {
-            background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
-        }
-    }
-
-    footer {
-        background-color: darkcyan;
-    }
-
-    #body_overlay {
-        background-color: black;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    header {
-
-        background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
-
-        & .menu_item {
-            background-color: transparent;
-        }
-    }
-
-    main {
-        background: linear-gradient(180deg, rgba(71, 67, 90, 0.5) 50%, rgba(1, 47, 24, 0.5) 100%);
-    }
-
-    #content-letter {
-        /*background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(44, 44, 43, 0.733) 4.2vh, rgba(37, 37, 36, 0.733));*/
-        background-color: black;
-        & p {color: black;}
-        & .card_desc p {
-            background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
-        }
-    }
-
-    footer {
-        background-color: rgb(0, 78, 78);
-    }
-
-    #body_overlay {
-        background-color: black;
-    }
-}
-
-/*@media only screen and (max-width: 1201px ) and (min-width: 1001px) {
-    #content_letter
-    background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));*/
-/*#content_letter
-    @media only screen and (max-width: 1000px ) {
-    background:  rgba(238, 237, 232, 1);
-*/
+section {
+    padding: 0.8rem;
+  }
 
 body {
     height: auto;
@@ -228,7 +131,6 @@ header {
     width: 100%;
     /*border: 3px rgb(66, 103, 100) solid;*/
     /*background-color: rgb(106, 163, 154);*/
-    background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
     padding: 0;
     margin: 0;
 }
@@ -250,10 +152,7 @@ header nav>* {
     margin: 0 auto;
     grid-area: title;
     letter-spacing: .3cap;
-
-    & a {
-        color: black;
-    }
+    text-decoration: double overline underline;
 }
 
 #head_main_link_logo {
@@ -301,7 +200,6 @@ header .menu_item {
     user-select: none;
     border: solid;
     background-color: transparent;
-    text-decoration-line: underline;
     position: relative;
 }
 
@@ -311,7 +209,6 @@ main {
     overflow-y: visible;
     /*border: 3px rgb(172, 124, 78) solid;*/
     /*background-color: rgb(229, 219, 171);*/
-    background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
 }
 
 #breadcrumb {
@@ -350,22 +247,6 @@ a.dropdown_button:hover .dropdown_content {
     overflow-x: hidden;
     width: 60%;
     margin: 0 auto 5vh;
-    background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 0px;
-        width: 0px;
-        z-index: 2;
-        border-width: 3vw;
-        border-style: solid;
-        border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
-        filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
-    }
 }
 
 #content {
@@ -377,11 +258,6 @@ a.dropdown_button:hover .dropdown_content {
 
     & a {
         text-decoration: none;
-        color: darkblue;
-
-        &:visited {
-            color: blueviolet;
-        }
     }
 
     & h2 {
@@ -428,11 +304,11 @@ a.dropdown_button:hover .dropdown_content {
         font-size: 0.9rem;
         overflow: visible;
         text-align: center;
-        box-shadow: 2px 2px 5px blue,
-            -2px -2px 5px yellow,
-            -2px 2px 5px red,
-            2px -2px 5px black;
-        border: 2px white solid;
+        box-shadow: 2px 2px 5px rgba(0, 0, 255, 35%),
+            -2px -2px 5px  rgba(255, 255, 0, 35%),
+            -2px 2px 5px  rgba(255, 0, 0, 35%),
+            2px -2px 5px  rgba(0, 0, 0, 25%);
+        border: 2px rgba(95, 85, 85, 25%) solid;
         padding: 2%;
         margin: 2vw auto 2vw auto;
         /*height: 100px;*/
@@ -443,10 +319,6 @@ a.dropdown_button:hover .dropdown_content {
         user-select: none;
 
         &.main_card {
-            box-shadow: 5px 5px 1px red,
-                -2px -2px 10px yellow,
-                -2px 2px 10px red,
-                2px -2px 10px pink;
             min-height: 5rem;
             max-height: 10%;
             height: 1vw;
@@ -481,12 +353,10 @@ a.dropdown_button:hover .dropdown_content {
 }*/
 
     & .card_desc p {
-        color: darkgreen;
         text-indent: 0px;
         padding: 1rem;
         border-radius: 2rem;
         line-height: 1rem;
-        background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
         box-shadow: 0px 0px 10px lightgray;
         text-shadow: 1px 1px 1px lightgreen;
     }
@@ -502,8 +372,6 @@ footer {
     overflow: visible;
     position: static;
     width: 100%;
-    /*border: 3px rgb(0, 109, 109) solid;*/
-    background-color: darkcyan;
     bottom: 0px;
 
     & nav {
@@ -539,6 +407,140 @@ footer {
     position: relative;
 }
 
+/* COLORING SECTION */
+
+#dark_mode_toggler span {
+    justify-self: right;
+    text-align: center;
+    min-width: max-content;
+    overflow: visible;
+    position: relative;
+    padding: 2vw;
+    width: min-content;
+    height: min-content;
+    z-index: 1;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: -1px 1px 10px black;
+    }
+
+}
+
+.light_mode {
+
+    & header {
+
+        background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
+        
+        & a {
+            text-decoration: none;
+            color: darkblue;
+        
+            &:visited {
+                color: darkblue;
+                }
+        }
+
+        & .menu_item {
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+
+    & main {
+        background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
+    }
+
+    & #content-letter {
+        /*box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);*/
+
+            /*&::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 0px;
+                width: 0px;
+                z-index: 2;
+                border-width: 3vw;
+                border-style: solid;
+                border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
+                filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
+            }*/
+            
+        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
+        color: wheat;
+        & .card_desc p {
+            background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
+            color: darkgreen;
+        }
+    }
+
+    & footer {
+        background-color: darkcyan;
+    }
+
+    & #body_overlay {
+        background-color: black;
+    }
+}
+
+.dark_mode {
+   & header {
+        background: linear-gradient(180deg, rgba(1, 59, 30, 0.75) 0%, rgba(34, 33, 26, 0.75) 100%);
+        & a {
+            color: rgba(12, 228, 120, 1);
+            text-shadow: none;
+        }
+
+        & .menu_item {
+            background-color: transparent;
+            text-decoration: underline;
+        }
+    }
+
+    & main {
+        background: linear-gradient(180deg,  rgba(34, 33, 26, 0.75) 50%, rgba(2, 44, 22, 0.75) 100%);
+        & a {
+            color: wheat;
+            text-shadow: none;
+        }
+    }
+
+    /*& #content-letter {
+        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(44, 44, 43, 0.733) 4.2vh, rgba(37, 37, 36, 0.733));
+
+        & .card_desc p {
+            background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
+        }
+    }*/
+
+    & #content {
+
+        & * {
+            color: rgba(255,255,255,0.75);
+        }
+
+    }
+
+    & footer {
+        background-color: rgb(0, 78, 78);
+    }
+
+    & #body_overlay {
+        background-color: black;
+    }
+}
+
+/*@media only screen and (max-width: 1201px ) and (min-width: 1001px) {
+    #content_letter
+    background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));*/
+/*#content_letter
+    @media only screen and (max-width: 1000px ) {
+    background:  rgba(238, 237, 232, 1);
+*/
+
 /* EFFECTS SECTION */
 #body_overlay {
     width: 100%;
@@ -557,7 +559,6 @@ footer {
 
 .nav_hovered {
     text-shadow: 1px 1px 1px black;
-    color: lightgreen;
     filter: saturate(0);
 }
 
@@ -581,7 +582,7 @@ footer {
         height: auto;
     }
 
-    h1 {
+    #head_title {
         padding: 0;
         white-space: unset;
         position: relative;
@@ -628,11 +629,10 @@ footer {
 
     #content_letter {
         width: 100%;
-        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
         margin: 0 auto;
 
-        &::after {
+        /*&::after {
             content: "";
             position: absolute;
             top: 0;
@@ -644,7 +644,7 @@ footer {
             border-style: solid;
             border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
             filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
-        }
+        }*/
     }
 
     #content {
@@ -737,18 +737,18 @@ footer {
         height: auto;
     }
 
-    h1 {
+    #head_title {
         padding: 0;
         white-space: unset;
         position: relative;
-        line-break: unset;
+        line-break:loose;
         margin: 5px;
         font-size: 1.5rem;
         min-height: fit-content;
         max-width: min-content;
         text-decoration: overline underline;
         text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
-        color: gray;
+        /*color: gray;*/
     }
 
     header nav {
@@ -797,10 +797,10 @@ footer {
 
     #content_letter {
         width: 100%;
-        background: rgba(238, 237, 232, 1);
+        /*background: rgba(238, 237, 232, 1);*/
         margin: 0 auto;
 
-        &::after {
+        /*&::after {
             content: "";
             visibility: hidden;
             top: 0;
@@ -813,7 +813,7 @@ footer {
             border-color: transparent rgba(238, 237, 232, 1) rgba(238, 237, 232, 1) transparent;
             filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
         }
-    }
+    }*/
 
     #content {
 
