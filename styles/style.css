@@ -258,6 +258,7 @@ a.dropdown_button:hover .dropdown_content {
 
     & a {
         text-decoration: none;
+        font-weight: bold;
     }
 
     & h2 {
@@ -270,7 +271,7 @@ a.dropdown_button:hover .dropdown_content {
         height: auto;
         padding: 5px;
         border-radius: 5px;
-        border: solid lightgray 1px;
+        border: solid rgba(211, 211, 211, 1) 1px;
         float: left;
         margin: 15px;
     }
@@ -357,8 +358,8 @@ a.dropdown_button:hover .dropdown_content {
         padding: 1rem;
         border-radius: 2rem;
         line-height: 1rem;
-        box-shadow: 0px 0px 10px lightgray;
-        text-shadow: 1px 1px 1px lightgreen;
+        box-shadow: 0px 0px 10px rgba(211, 211, 211, 0.75);
+        text-shadow: 1px 1px 1px rgba(144, 238, 144, 0.75)
     }
 }
 
@@ -432,24 +433,29 @@ footer {
     & header {
 
         background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
-        
-        & a {
-            text-decoration: none;
-            color: darkblue;
-        
-            &:visited {
-                color: darkblue;
-                }
-        }
 
         & .menu_item {
             background-color: transparent;
             text-decoration: underline;
         }
+
+        #tod {
+            color: rgba(0, 0, 0, 1);
+        }
     }
 
     & main {
         background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
+
+        & a {
+            text-decoration: none;
+            color: rgba(0, 0, 139, 1);
+        
+            &:visited {
+                color: rgb(62, 62, 209));
+                }
+        }
+
     }
 
     & #content-letter {
@@ -469,26 +475,36 @@ footer {
                 filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
             }*/
             
-        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
-        color: wheat;
+        background: linear-gradient(135deg, 
+                                    transparent, 
+                                    transparent 4.2vw, 
+                                  rgba(238, 237, 232, 0.733) 4.2vh, 
+                                  rgba(238, 237, 232, 0.733));
+        color: rgba(245, 222, 179, 1);
         & .card_desc p {
             background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
-            color: darkgreen;
+            color: rgba(0, 100, 0, 1);
         }
     }
 
     & footer {
-        background-color: darkcyan;
+        background-color: rgba(0, 139, 139, 1);
     }
 
     & #body_overlay {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 1);
+    }
+
+    & #footer_copyright {
+        color: rgba(0, 0, 0, 1);
     }
 }
 
 .dark_mode {
    & header {
-        background: linear-gradient(180deg, rgba(1, 59, 30, 0.75) 0%, rgba(34, 33, 26, 0.75) 100%);
+        background: linear-gradient(180deg, 
+                                  rgba(1, 59, 30, 0.75) 0%, 
+                                  rgba(34, 33, 26, 0.75) 100%);
         & a {
             color: rgba(12, 228, 120, 1);
             text-shadow: none;
@@ -498,12 +514,16 @@ footer {
             background-color: transparent;
             text-decoration: underline;
         }
+
+        #tod {
+            color: rgba(245, 222, 179, 1);
+        }
     }
 
     & main {
         background: linear-gradient(180deg,  rgba(34, 33, 26, 0.75) 50%, rgba(2, 44, 22, 0.75) 100%);
         & a {
-            color: wheat;
+            color: rgba(245, 222, 179, 1);
             text-shadow: none;
         }
     }
@@ -519,17 +539,21 @@ footer {
     & #content {
 
         & * {
-            color: rgba(255,255,255,0.75);
+            color: rgba(149, 231, 186, 0.75);
         }
 
     }
 
     & footer {
-        background-color: rgb(0, 78, 78);
+        background-color: rgba(0, 78, 78, 1);
     }
 
     & #body_overlay {
         background-color: black;
+    }
+
+    & #footer_copyright {
+        text-shadow: 1px;
     }
 }
 
@@ -558,7 +582,6 @@ footer {
 }
 
 .nav_hovered {
-    text-shadow: 1px 1px 1px black;
     filter: saturate(0);
 }
 
@@ -696,7 +719,7 @@ footer {
             content: "__________________________";
             position: relative;
             margin: 0 auto;
-            text-shadow: 1px 1px 1px wheat;
+            text-shadow: 1px 1px 1px rgba(245, 222, 179, 1);
             line-height: 3rem;
         }
 
@@ -747,7 +770,8 @@ footer {
         min-height: fit-content;
         max-width: min-content;
         text-decoration: overline underline;
-        text-shadow: 1px 1px 3px white, -1px -1px 3px wheat;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255, 1), 
+                    -1px -1px 3px rgba(245, 222, 179);
         /*color: gray;*/
     }
 
@@ -814,8 +838,8 @@ footer {
             filter: drop-shadow(-2px 6px 6px rgba(0, 0, 0, .5));
         }
     }*/
-
-    #content {
+    }
+    & #content {
 
         & p {
             font-size: 1rem;
@@ -873,7 +897,7 @@ footer {
             content: "__________";
             position: relative;
             margin: 0 auto;
-            text-shadow: 1px 1px 1px wheat;
+            text-shadow: 1px 1px 1px rgba(245, 222, 179, 1);
             line-height: 3rem;
         }
 
