@@ -85,7 +85,9 @@ const clockTick = () => {
     const tod = document.getElementById('tod');
     // here we get the element with the id of "date" and change the content to the text variable we made above
     if (window.matchMedia("only screen and (min-width: 1201px)").matches) {
-        var todText = (dayName + ', <br>' + time().month + "/" + time().day + "/" + time().year + '<br>' + '' + hours + ':' + minutes + ':' + seconds + ' ' + time().offsetFormat);
+        var todText =   (dayName + ', <br>' + 
+                        time().month + "/" + time().day + "/" + time().year + '<br>' + 
+                        '' + hours + ':' + minutes + ':' + seconds + ' ' + time().offsetFormat);
     } else if (window.matchMedia("only screen and (max-width: 1200px)").matches) {
         var todText = (dayName + ', ' + time().month + "/" + time().day + "/" + time().year + ' ' + '' + hours + ':' + minutes + ':' + seconds + ' ' + time().offsetFormat);
     }
@@ -141,7 +143,7 @@ const toggleLightDarkMode = () => {
     if (rootElement.style.colorScheme === 'dark') {
         rootElement.style.colorScheme = 'light';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'        
-    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '') {
+    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '' || rootElement.style.colorScheme === 'normal' ) {
         rootElement.style.colorScheme = 'dark';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
     }

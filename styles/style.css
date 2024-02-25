@@ -32,10 +32,8 @@
 
 /* COLORING */
 
-/* LIGHT MODE */
-
 :root {
-    color-scheme: light;
+    color-scheme: normal;
 }
 
 #dark_mode_toggler span {
@@ -57,29 +55,24 @@
 }
 
 @media (prefers-color-scheme: light) {
-    header {
-
-        background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
-
-        & .menu_item {
-            background-color: transparent;
-        }
+    body * {
+        color: aqua;
     }
 
+    header {
+        background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
+    }
     main {
+
         background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
     }
 
     #content-letter {
-        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(238, 237, 232, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
+        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(116, 102, 34, 0.733) 4.2vh, rgba(238, 237, 232, 0.733));
 
         & .card_desc p {
             background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
         }
-    }
-
-    footer {
-        background-color: darkcyan;
     }
 
     #body_overlay {
@@ -102,9 +95,8 @@
     }
 
     #content-letter {
-        /*background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(44, 44, 43, 0.733) 4.2vh, rgba(37, 37, 36, 0.733));*/
-        background-color: black;
-        & p {color: black;}
+        background: linear-gradient(135deg, transparent, transparent 4.2vw, rgba(44, 44, 43, 0.733) 4.2vh, rgba(37, 37, 36, 0.733));
+
         & .card_desc p {
             background: linear-gradient(60deg, rgba(245, 255, 0, 0.05) 0%, rgba(0, 5, 255, 0.02) 50%);
         }
@@ -227,8 +219,6 @@ header {
     z-index: 10;
     width: 100%;
     /*border: 3px rgb(66, 103, 100) solid;*/
-    /*background-color: rgb(106, 163, 154);*/
-    background: linear-gradient(180deg, rgba(2, 117, 60, 0.5) 0%, rgba(90, 86, 67, 0.5) 100%);
     padding: 0;
     margin: 0;
 }
@@ -300,7 +290,6 @@ header .menu_item {
     text-align: center;
     user-select: none;
     border: solid;
-    background-color: transparent;
     text-decoration-line: underline;
     position: relative;
 }
@@ -310,8 +299,6 @@ main {
     min-height: fit-content;
     overflow-y: visible;
     /*border: 3px rgb(172, 124, 78) solid;*/
-    /*background-color: rgb(229, 219, 171);*/
-    background: linear-gradient(180deg, rgba(90, 86, 67, 0.5) 50%, rgba(2, 117, 60, 0.5) 100%);
 }
 
 #breadcrumb {
@@ -503,7 +490,6 @@ footer {
     position: static;
     width: 100%;
     /*border: 3px rgb(0, 109, 109) solid;*/
-    background-color: darkcyan;
     bottom: 0px;
 
     & nav {
@@ -543,7 +529,6 @@ footer {
 #body_overlay {
     width: 100%;
     height: 100%;
-    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
