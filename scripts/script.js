@@ -30,8 +30,9 @@ const tod = document.getElementById("tod"),
     lightDarkModeButton = document.getElementById('dark_mode_toggler'),
     rootElement = document.querySelector(':root'),
     body = document.body,
-    dropDownButton = querySelectorAll('dropdown_button'),
-    dropDownContent = querySelectorAll('dropdown_content');
+    dropDownButton = document.querySelectorAll('a.dropdown_button'),
+    dropDownContent = document.getElementsByClassName('dropdown_content'),
+    dropDownContentRevealed = document.querySelectorAll('dropdown_content_revealed');
 
 // DATE
 let dayName = undefined;
@@ -104,6 +105,20 @@ setInterval(clockTick, 100);
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
 // EVENT HANDLERS
+const revealDropdownMenu = event => {
+        event.target.classList.add('dropdown_content_revealed');
+        for(let item of dropDownContent) {
+            item.classList.add('dropdown_content_revealed');
+        }
+    }
+
+const hideDropdownMenu = event => {
+    event.target.classList.remove('dropdown_content_revealed');
+    for(let item of dropDownContentRevealed) {
+        item.classList.remove('dropdown_content_revealed');
+    }
+    console.log(dropDownContentRevealed.values)
+}
 
 const resizeImg = event => {
     bodyOverlay.style.visibility = 'visible';
@@ -142,10 +157,10 @@ const navMenuButtonsEffects = () => {
         const spread = rand(10, 15);
 
         if (body.className === 'light_mode') {
-            var shadowColor = randColorPicker(150, 255, 200, 255, 150, 255, 1);
+            var shadowColor = randColorPicker(150, 255, 200, 255, 150, 255, 0.5);
             var color = randColorPicker(10, 50, 10, 50, 80, 150, 1);
         } else if (body.className === 'dark_mode') {
-            var shadowColor = randColorPicker(0, 50, 0, 100, 0, 50, 1);
+            var shadowColor = randColorPicker(0, 50, 0, 100, 0, 50, 0.5);
             var color = randColorPicker(150, 200, 150, 200, 150, 200, 1);
         }
 
@@ -220,21 +235,31 @@ const effectsMainMenuButtons = () => {
         }
     }
 }
+// dropdown menu hover effect
+if (! window.matchMedia("only screen and (max-width: 1000px)").matches) {
+    for (let item of dropDownButton) {
+        item.addEventListener("mouseenter", revealDropdownMenu);
+    }
+
+    for(let item of dropDownContent) {
+        item.addEventListener("mouseleave", hideDropdownMenu);
+    }
+}
 
 // dark/light mode toggler
-lightDarkModeButton.onclick = toggleLightDarkMode;
+lightDarkModeButton.addEventListener("click", toggleLightDarkMode);
 
 // img effects
 for (let item of contentImg) {
-    item.onmousedown = resizeImg;
-    item.onmouseup = unresizeImg;
+    item.addEventListener("mousedown", resizeImg);
+    item.addEventListener("mouseup", unresizeImg);
 }
 
 // cards effets
 for (let item of cards) {
-    //item.onmousedown = expandCard;
-    //item.onmouseup = collapseCard;
-    //item.onmouseenter = expandButtonsContent;
+    //item.addEventListener("mousedown", expandCard);
+    //item.addEventListener("mouseup", collapseCard);
+    //item.addEventListener("mouseenter", expandButtonsContent);
 }
 
 //if (window.matchMedia("(min-width: 1000px)").matches) {
@@ -248,18 +273,18 @@ for (let item of links) {
     } else {*/
     /*item.style.color = randColorPicker();*/
     item.style.textDecoration = 'underline';
-    item.onmouseenter = mouseEnter;
-    item.onmouseleave = mouseLeave;
+    item.addEventListener("mouseenter", mouseEnter);
+    item.addEventListener("mouseleave", mouseLeave);
     //}
 }
 
 const dynEffects = (className) => {
     var elements = document.getElementsByClassName(className);
     for (let item of elements) {
-        item.onmouseenter = mouseEnter;
-        item.onmouseleave = mouseLeave;
-        item.onmousedown = tap;
-        item.onmouseup = unTap;
+        item.addEventListener("mouseenter", mouseEnter);
+        item.addEventListener("mouseleave", mouseLeave);
+        item.addEventListener("mousedown", tap);
+        item.addEventListener("mouseup", unTap);
     }
 }
 

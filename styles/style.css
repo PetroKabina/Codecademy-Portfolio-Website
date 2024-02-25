@@ -28,7 +28,7 @@
 
 section {
     padding: 0.8rem;
-  }
+}
 
 body {
     height: auto;
@@ -213,14 +213,14 @@ main {
 
 #breadcrumb {
     display: inline-flex;
-    position: relative;
     flex-direction: row;
     justify-content: flex-start;
     margin: 0 auto;
-    padding: 5vw 0px 0px 10%;
+    padding: 0px;
     width: 100%;
     top: 0;
     user-select: none;
+    z-index: 1000;
 }
 
 #breadcrumb>li {
@@ -236,9 +236,10 @@ main {
 
 .dropdown_content {
     display: none;
+    font-size: 1rem;
 }
 
-a.dropdown_button:hover .dropdown_content {
+.dropdown_content_revealed {
     display: block;
 }
 
@@ -251,7 +252,7 @@ a.dropdown_button:hover .dropdown_content {
 
 #content {
     padding: 7vw 3vh 5vw 5vh;
-    position: relative;
+    position: static;
     top: 0;
     left: 0;
     text-align: justify;
@@ -403,9 +404,9 @@ footer {
 #footer_copyright {
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
-    right: 0px;
-    bottom: 0px;
+    width: fit-content;
     position: relative;
+    justify-self: end;
 }
 
 /* COLORING SECTION */
@@ -452,7 +453,7 @@ footer {
             color: rgba(0, 0, 139, 1);
         
             &:visited {
-                color: rgb(62, 62, 209));
+                color: rgb(62, 62, 209);
                 }
         }
 
@@ -496,7 +497,7 @@ footer {
     }
 
     & #footer_copyright {
-        color: rgba(0, 0, 0, 1);
+        color: rgba(211,211,211,1)
     }
 }
 
@@ -553,7 +554,7 @@ footer {
     }
 
     & #footer_copyright {
-        text-shadow: 1px;
+        color: rgba(124, 112, 90);
     }
 }
 
@@ -582,6 +583,7 @@ footer {
 
 .nav_hovered {
     filter: saturate(0);
+    box-shadow: -1px 0px 2px rgba(255, 255, 255, 1);
 }
 
 .content_img_clicked {
@@ -639,7 +641,7 @@ footer {
     }
 
     #breadcrumb {
-        padding: 0px 0px 0px 10%;
+        padding: 0;
         width: 100%;
         margin: 0px;
         position: relative;
@@ -763,7 +765,7 @@ footer {
         padding: 0;
         white-space: unset;
         position: relative;
-        line-break:loose;
+        line-break: loose;
         margin: 5px;
         font-size: 1.5rem;
         min-height: fit-content;
@@ -771,7 +773,6 @@ footer {
         text-decoration: overline underline;
         text-shadow: 1px 1px 3px rgba(255, 255, 255, 1), 
                     -1px -1px 3px rgba(245, 222, 179);
-        /*color: gray;*/
     }
 
     header nav {
@@ -811,6 +812,7 @@ footer {
         left: 0px;
         margin: 0px;
         position: relative;
+        flex-direction: column;
 
         & a {
             font-family: 'Courier New', Courier, monospace;
@@ -928,6 +930,11 @@ footer {
             font-size: 1rem;
             font-weight: bold;
         }
+    }
+
+    #footer_copyright {
+        margin: 0 auto;
+        font-size: 1rem;
     }
 
 }
