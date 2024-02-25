@@ -7,28 +7,31 @@ const rand = (min, max) => {
     }
 }
 
-const randColorPicker = (rMin = 20, rMax = 80, gMin = 20, gMax = 80, bMin = 20, bMax = 80) => {
+//accepts rgb components and opacity, returns random color
+const randColorPicker = (rMin = 20, rMax = 80, gMin = 20, gMax = 80, bMin = 20, bMax = 80, alpha = 1) => {
     let rRand = rand(rMin, rMax);
     let gRand = rand(gMin, gMax);
     let bRand = rand(bMin, bMax);
-    return "rgb(" + rRand + "," + gRand + "," + bRand + ")";
+    return "rgba(" + rRand + "," + gRand + "," + bRand + "," + alpha + ")";
 }
 
 // DOM OBJECTS
 const tod = document.getElementById("tod"),
     bodyOverlay = document.getElementById('body_overlay'),
     mainMenuButtons = document.querySelectorAll("header nav .menu_item"),
-    footerMenuButtons = document.querySelectorAll("footer nav .menu_item"),
     firstContentPLetter = document.querySelector("#content p:first-of-type::first-letter"),
     links = document.querySelectorAll('main a'),
     cards = document.getElementsByClassName("card"),
     cardDescriptions = document.getElementsByClassName("card_desc"),
     expandButtons = document.getElementsByClassName("card_expand"),
-    menus = document.querySelectorAll('footer menu, main menu, h1'),
+    menus = document.querySelectorAll('footer nav .menu_item, main nav .menu_item, h1'),
     footerCopyright = document.getElementById('footer_copyright'),
     contentImg = document.querySelectorAll('#content img'),
     lightDarkModeButton = document.getElementById('dark_mode_toggler'),
-    rootElement = document.querySelector(':root');
+    rootElement = document.querySelector(':root'),
+    body = document.body,
+    dropDownButton = querySelectorAll('dropdown_button'),
+    dropDownContent = querySelectorAll('dropdown_content');
 
 // DATE
 let dayName = undefined;
@@ -97,16 +100,6 @@ const clockTick = () => {
 // here we run the clockTick function every 100ms
 setInterval(clockTick, 100);
 
-const dynEffects = (className) => {
-    var elements = document.getElementsByClassName(className);
-    for (let item of elements) {
-        item.onmouseenter = mouseEnter;
-        item.onmouseleave = mouseLeave;
-        item.onmousedown = tap;
-        item.onmouseup = unTap;
-    }
-}
-
 // FOOTER COPYRIGHT
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
@@ -139,14 +132,44 @@ const unTap = event => {
     event.target.classList.remove("nav_hovered");
 }
 
-const toggleLightDarkMode = () => {
-    if (rootElement.style.colorScheme === 'dark') {
-        rootElement.style.colorScheme = 'light';
-        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'        
-    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '' || rootElement.style.colorScheme === 'normal' ) {
-        rootElement.style.colorScheme = 'dark';
-        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
+
+// random colors and shadows for menus
+const navMenuButtonsEffects = () => {
+    for (let item of menus) {
+
+        const top = rand(1, 4);
+        const left = rand(1, 4);
+        const spread = rand(10, 15);
+
+        if (body.className === 'light_mode') {
+            var shadowColor = randColorPicker(150, 255, 200, 255, 150, 255, 1);
+            var color = randColorPicker(10, 50, 10, 50, 80, 150, 1);
+        } else if (body.className === 'dark_mode') {
+            var shadowColor = randColorPicker(0, 50, 0, 100, 0, 50, 1);
+            var color = randColorPicker(150, 200, 150, 200, 150, 200, 1);
+        }
+
+        item.style.textShadow = top + 'px ' + left + 'px ' + spread + 'px ' + shadowColor + ', ' +
+            -top + 'px ' + left + 'px ' + spread + 'px ' + shadowColor + ', ' +
+            top + 'px ' + -left + 'px ' + spread + 'px ' + shadowColor + ', ' +
+            -top + 'px ' + -left + 'px ' + spread + 'px ' + shadowColor;
+        item.style.color = color;
     }
+}
+
+// changes className by pressing on dark/light mode button
+const toggleLightDarkMode = () => {
+
+    if (body.className === 'light_mode') {
+        body.className = 'dark_mode';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
+    } else if (body.className === 'dark_mode') {
+        body.className = 'light_mode';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'
+    }
+
+    navMenuButtonsEffects();
+
 }
 
 const effectsMainMenuButtons = () => {
@@ -165,7 +188,7 @@ const effectsMainMenuButtons = () => {
             padding = 5 + rand(-15, 40);
 
         if (window.innerWidth >= 1200 && screen.orientation.type === 'landscape-primary') {
-            item.style.textShadow = '';
+            item.style.textShadow = 'none';
             item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
             item.style.backgroundColor = randColorPicker();
             item.style.margin = margin + "px";
@@ -174,7 +197,7 @@ const effectsMainMenuButtons = () => {
             item.style.border = "solid 3px " + randColorPicker();
             item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
             item.style.top = top + 'px';
-        } else if (window.innerWidth < 1200 && window.innerWidth >= 1000  ) {
+        } else if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
             item.style.textShadow = 'none';
             item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
             item.style.backgroundColor = randColorPicker();
@@ -184,7 +207,7 @@ const effectsMainMenuButtons = () => {
             item.style.border = "solid 2px " + randColorPicker();
             item.style.borderRadius = "0px";
             item.style.top = "0px"
-        } else if (window.innerWidth < 1000 ) {
+        } else if (window.innerWidth < 1000) {
             item.style.textShadow = 'none';
             item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
             item.style.backgroundColor = randColorPicker();
@@ -203,7 +226,7 @@ lightDarkModeButton.onclick = toggleLightDarkMode;
 
 // img effects
 for (let item of contentImg) {
-    item.onmousedown  = resizeImg;
+    item.onmousedown = resizeImg;
     item.onmouseup = unresizeImg;
 }
 
@@ -223,15 +246,26 @@ for (let item of links) {
         item.onmouseenter = mouseEnter;
         item.onmouseleave = mouseLeave; 
     } else {*/
-    item.style.color = randColorPicker();
+    /*item.style.color = randColorPicker();*/
     item.style.textDecoration = 'underline';
     item.onmouseenter = mouseEnter;
     item.onmouseleave = mouseLeave;
     //}
 }
 
+const dynEffects = (className) => {
+    var elements = document.getElementsByClassName(className);
+    for (let item of elements) {
+        item.onmouseenter = mouseEnter;
+        item.onmouseleave = mouseLeave;
+        item.onmousedown = tap;
+        item.onmouseup = unTap;
+    }
+}
+
 // INITIAL EFFECTS
 effectsMainMenuButtons();
+navMenuButtonsEffects();
 // DINAMIC EFFECTS
 dynEffects('menu_item')
 const delay = 1;
@@ -241,27 +275,3 @@ window.onresize = function () {
     clearTimeout(window.resizedFinished);
     window.resizedFinished = setTimeout(effectsMainMenuButtons(), delay)
 };
-
-for (let item of menus) {
-    const top = rand(1, 5);
-    const left = rand(1, 5);
-    const spread = rand(10, 20);
-    const color = randColorPicker(150, 255, 200, 255, 150, 255, 150, 255);
-    item.style.textShadow = top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + left + 'px ' + spread + 'px ' + color + ', ' + top + 'px ' + -left + 'px ' + spread + 'px ' + color + ', ' + -top + 'px ' + -left + 'px ' + spread + 'px ' + color;
-    item.style.color = randColorPicker(10, 50, 10, 50, 80, 150, 20, 80);
-}
-
-for (let item of footerMenuButtons) {
-    let rRand = rand(20, 80);
-    let gRand = rand(20, 80);
-    let bRand = rand(20, 80);
-    let randomBGColor = "rgb(" + rRand + "," + gRand + "," + bRand + ")";
-    item.style.color = randomBGColor;
-}
-
-//} else {
-/*    for (let item of mainMenuButtons) {
-        item.style.borderRadius = "0px";
-    };
-*/
-//}
