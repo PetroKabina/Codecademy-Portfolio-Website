@@ -6,6 +6,7 @@ Typically, a portfolio website will have a main page that features different pro
 
 Occasionally, there are additional pages for each project, detailing the technology used.
 # Project links
+## Github Pages: [link](https://petrokabina.github.io/Codecademy-Portfolio-Website/) 
 ## Codecademy: [Initial task workspace](https://www.codecademy.com/journeys/full-stack-engineer/paths/fscj-22-building-interactive-websites/tracks/fscj-22-portfolio-project-personal-portfolio-website/modules/wdcp-22-personal-portfolio-project-038ecbc8-d57e-4b30-93a4-f70e0ee627ce/kanban_projects/portfolio-website)
 ## Site wireframe and initial design: [Creately](https://app.creately.com/d/VauS7vMUZ9x/edit) (may not be displayed properly)
 ## Project deployment platform: [Netlify](https://app.netlify.com/signup/start)
