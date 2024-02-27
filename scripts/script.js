@@ -26,7 +26,7 @@ const tod = document.getElementById("tod"),
     expandButtons = document.getElementsByClassName("card_expand"),
     menus = document.querySelectorAll('footer nav .menu_item, main nav .menu_item, h1'),
     footerCopyright = document.getElementById('footer_copyright'),
-    contentImg = document.querySelectorAll('#content img'),
+    contentImg = document.querySelectorAll('#content img.content_img'),
     lightDarkModeButton = document.getElementById('dark_mode_toggler'),
     rootElement = document.querySelector(':root'),
     body = document.body,
@@ -227,7 +227,7 @@ const effectsMainMenuButtons = () => {
             item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
             item.style.backgroundColor = randColorPicker();
             item.style.margin = "0px";
-            item.style.padding = "0px";
+            item.style.padding = "0.5rem";
             item.style.zIndex = "0";
             item.style.border = "solid 1px " + randColorPicker();
             item.style.borderRadius = "0px";

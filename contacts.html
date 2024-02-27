@@ -17,7 +17,7 @@
     <header>
         <nav>
             <section id="head_main_link_logo">
-                <a  target="_blank" href="index.html"><img src="./images/wg_logo.webp"></a>
+                <a target="_blank" href="index.html"><img src="./images/wg_logo.webp"></a>
             </section>
             <section id="head_title">
                 <h1><a href="index.html">WARMIN GAHOO PORTFOLIO</a></h1>
@@ -42,9 +42,10 @@
             <nav>
                 <menu>
                     <ul id="breadcrumb">
-                        <li><a class="menu_item dropdown_button" href="index.html">MAIN<span class="material-symbols-outlined">
-                            arrow_drop_down
-                            </span></a>                            
+                        <li><a class="menu_item dropdown_button" href="index.html">MAIN<span
+                                    class="material-symbols-outlined">
+                                    arrow_drop_down
+                                </span></a>
                             <div class="dropdown_content">
                                 <ul>
                                     <li><a class="menu_item" href="my-projects.html">My Projects</a></li>
@@ -62,7 +63,7 @@
             <div id="content">
                 <h2>My contacts</h2>
                 <p>
-                    <img src="./images/wg_contacts_photo.webp">
+                    <img class="content_img" src="./images/wg_contacts_photo.webp">
                     I'm Warmin Gahoo, an engineer driven by a passion for innovation and problem-solving.
                 </p>
                 <p>With 68 years of experience in networking, I've honed my skills and developed a proven track record
@@ -72,42 +73,60 @@
                     head-on.</p>
                 <p>Whether it's optimizing processes or spearheading new initiatives, I'm committed to driving success
                     and making a positive impact wherever I go.</p>
-                <h3><span class="material-symbols-outlined list_icon">contacts_product</span>Contacts information</h3>
-                <ul>
-                    <li><span class="material-symbols-outlined list_icon">mail</span>
-                        <h4>My e-mail: </h4><a target="_blank" href="mailto:warmin.gahoo@yahoo.com">warmin.gahoo@yahoo.com</a>
-                    </li>
-                    <li><span class="material-symbols-outlined list_icon">call</span>
-                        <h4>My phone: </h4><a target="_blank" href="tel:+380666666666">+38066-666-666-6</a>
-                    </li>
-                    <li><img class="list_icon"
-                            src="https://www.gravatar.com/avatar/30804c4810f41085266d54b3abef8390?s=140&d=retro">
-                        <h4>My Codecademy profile: </h4><a target="_blank"
-                            href="https://discuss.codecademy.com/u/designwhiz48825/activity">designwhiz48825</a>
-                    </li>
-                    <li><img class="list_icon" src="https://avatars.githubusercontent.com/u/25269874?s=96&v=4">
-                        <h4>My GitHub profile: </h4><a target="_blank" href="https://github.com/PetroKabina">PetroKabina</a>
-                    </li>
-                    <li><span class="material-symbols-outlined list_icon">assistant_navigation</span>
-                        <h4>My location: </h4><a target="_blank" href="https://maps.app.goo.gl/bmgXh5gTG51XkWd9A">Ukraine, Kyiv,
-                            Metrolohichna st., 0</a>
-                    </li>
-                </ul>
-                </menu>
-                <h3><span class="material-symbols-outlined list_icon">school</span>Education:</h3>
-                <p>Master, ONAT, Odessa, 2016</p>
-                <p>Student, Codecademy, NY, 2017 - ...</p>
-                <h3><span class="material-symbols-outlined list_icon">work_history</span>Professional Experience:</h3>
-                <p>Engineer
-                    Budka, Kyiv
-                    2016 - 2020</p>
-                <h3><span class="material-symbols-outlined list_icon">widgets</span>Skills:</h3>
-                <p>Proficient in DOCSIS, Ethernet, Linux, HTML, CSS, JS
-                    Strong problem-solving and analytical abilities
-                    Excellent communication and teamwork skills</p>
-                <h3><span class="material-symbols-outlined list_icon">translate</span>Languages:</h3>
-                <p>English (fluent), Ukrainian (native), Deutsch (intermediate)</p>
-
+                    <h3><span class="material-symbols-outlined list_icon">contacts_product</span>Contacts information</h3>
+                    <section class="card">
+                    <div class="card_expand"></div>
+                            <div class="card_desc">    
+                            <h5>My e-mail:</h5><p><a target="_blank"
+                                    href="mailto:warmin.gahoo@yahoo.com"><span class="material-symbols-outlined list_icon">mail</span> warmin.gahoo@yahoo.com</a>
+                                </p>
+                            <h5>My phone:</h5><p><a target="_blank" href="tel:+380666666666"><span class="material-symbols-outlined list_icon">call</span> +38066-666-666-6</a>
+                            </p>
+                            <h5>My Codecademy profile:</h5><p><a target="_blank"
+                                    href="https://discuss.codecademy.com/u/designwhiz48825/activity"><img class="list_icon"
+                                    src="https://www.gravatar.com/avatar/30804c4810f41085266d54b3abef8390?s=140&d=retro"> designwhiz48825</a>
+                            </p>
+                            <h5>My GitHub profile:</h5><p><a target="_blank"
+                                    href="https://github.com/PetroKabina"><img class="list_icon" src="https://avatars.githubusercontent.com/u/25269874?s=96&v=4"> PetroKabina</a>
+                            </p>
+                            <h5>My location:</h5> <p><a target="_blank"
+                                    href="https://maps.app.goo.gl/bmgXh5gTG51XkWd9A"><span class="material-symbols-outlined list_icon">assistant_navigation</span> Ukraine, Kyiv, Metrolohichna st., 0</a>
+                            </p>
+                </section>
+                <section class="card">
+                    <h4><span class="material-symbols-outlined list_icon">school</span>Education:</h4>
+                    <div class="card_expand"></div>
+                    <div class="card_desc">
+                        <p>Master, ONAT, Odessa, 2015 - 2016</p>
+                        <p>Student, Codecademy, NY, 2017 - ...</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <h4><span class="material-symbols-outlined list_icon">work_history</span>Professional Experience:
+                    </h4>
+                    <div class="card_expand"></div>
+                    <div class="card_desc">
+                        <p>Engineer<br>
+                            Budka, Kyiv<br>
+                            2016 - 2020</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <h4><span class="material-symbols-outlined list_icon">widgets</span>Skills:</h4>
+                    <div class="card_expand"></div>
+                    <div class="card_desc">
+                        <p>Proficient in DOCSIS, Ethernet, Linux, HTML, CSS, JS
+                            Strong problem-solving and analytical abilities
+                            Excellent communication and teamwork skills</p>
+                    </div>
+                </section>
+                <section class="card">
+                    <h4><span class="material-symbols-outlined list_icon">translate</span>Languages:</h4>
+                    <div class="card_expand"></div>
+                    <div class="card_desc">
+                        <p>English (fluent), Ukrainian (native), Deutsch (intermediate)</p>
+                    </div>
+                </section>
             </div>
         </div>
     </main>
@@ -150,9 +169,12 @@
                         <li>
                             <h4><a class="menu_item" href="contacts.html">Contact me</a></h4>
                         </li>
-                        <li><a class="menu_item" target="_blank" href="mailto:warmin.gahoo@yahoo.com">warmin.gahoo@yahoo.com</a></li>
+                        <li><a class="menu_item" target="_blank"
+                                href="mailto:warmin.gahoo@yahoo.com">warmin.gahoo@yahoo.com</a></li>
                         <li><a class="menu_item" target="_blank" href="tel:+380666666666">+38066-666-666-6</a></li>
-                        <li><a class="menu_item" target="_blank" href="https://maps.app.goo.gl/bmgXh5gTG51XkWd9A">Ukraine, Kyiv, Metrolohichna st., 0</a></li>
+                        <li><a class="menu_item" target="_blank"
+                                href="https://maps.app.goo.gl/bmgXh5gTG51XkWd9A">Ukraine, Kyiv, Metrolohichna st., 0</a>
+                        </li>
                     </ul>
                 </menu>
             </section>
