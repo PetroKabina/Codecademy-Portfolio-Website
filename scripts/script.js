@@ -161,7 +161,7 @@ const navMenuButtonsEffects = () => {
             var color = randColorPicker(10, 50, 10, 50, 80, 150, 1);
         } else if (body.className === 'dark_mode') {
             var shadowColor = randColorPicker(0, 50, 0, 100, 0, 50, 0.5);
-            var color = randColorPicker(150, 200, 150, 200, 150, 200, 1);
+            var color = randColorPicker(200, 250, 200, 250, 200, 250, 1);
         }
 
         item.style.textShadow = top + 'px ' + left + 'px ' + spread + 'px ' + shadowColor + ', ' +
@@ -202,10 +202,11 @@ const effectsMainMenuButtons = () => {
             margin = rand(-10, 0),
             padding = 5 + rand(-15, 40);
 
+            //item.style.textShadow = '1px 1px 1px rgba(255,255,255,2), 1px -1px 1px rgba(255,255,255,2), -1px 1px 1px rgba(255,255,255,2), -1px -1px 1px rgba(255,255,255,2)';
+            item.style.color = randColorPicker(20, 30, 20, 50, 20, 30, 1);
+            item.style.backgroundColor = randColorPicker(180, 200, 180, 255, 180, 200, 1);
+
         if (window.innerWidth >= 1200 && screen.orientation.type === 'landscape-primary') {
-            item.style.textShadow = 'none';
-            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
-            item.style.backgroundColor = randColorPicker();
             item.style.margin = margin + "px";
             item.style.padding = padding + "px";
             item.style.zIndex = zIndex;
@@ -213,9 +214,6 @@ const effectsMainMenuButtons = () => {
             item.style.borderRadius = radius.lt + "% " + radius.rt + "% " + radius.lb + "% " + radius.rb + "%";
             item.style.top = top + 'px';
         } else if (window.innerWidth < 1200 && window.innerWidth >= 1000) {
-            item.style.textShadow = 'none';
-            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
-            item.style.backgroundColor = randColorPicker();
             item.style.margin = "5px";
             item.style.padding = "5px";
             item.style.zIndex = "0";
@@ -223,9 +221,6 @@ const effectsMainMenuButtons = () => {
             item.style.borderRadius = "0px";
             item.style.top = "0px"
         } else if (window.innerWidth < 1000) {
-            item.style.textShadow = 'none';
-            item.style.color = randColorPicker(150, 180, 150, 180, 150, 255, 150, 180);
-            item.style.backgroundColor = randColorPicker();
             item.style.margin = "0px";
             item.style.padding = "0.5rem";
             item.style.zIndex = "0";

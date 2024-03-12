@@ -416,6 +416,15 @@ footer {
     justify-self: end;
 }
 
+#footer_accessibility_test_passes {
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    justify-self: end;
+}
+
 /* COLORING SECTION */
 
 #dark_mode_toggler span {
@@ -498,7 +507,7 @@ footer {
     }
 
     & footer {
-        background-color: rgba(0, 139, 139, 1);
+        background-color:  rgba(136, 211, 173, 0.5);
     }
 
     & #body_overlay {
@@ -506,7 +515,7 @@ footer {
     }
 
     & #footer_copyright {
-        color: rgba(211,211,211,1)
+        color: rgba(0,0,0,1)
     }
 }
 
@@ -563,7 +572,7 @@ footer {
     }
 
     & #footer_copyright {
-        color: rgba(124, 112, 90);
+        color: rgba(255, 255, 255, 0.5);
     }
 }
 
