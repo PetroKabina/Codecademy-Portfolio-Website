@@ -156,10 +156,10 @@ const navMenuButtonsEffects = () => {
         const left = rand(1, 4);
         const spread = rand(10, 15);
 
-        if (body.className === 'light_mode') {
+        if (rootElement.style.colorScheme === 'light') {
             var shadowColor = randColorPicker(150, 255, 200, 255, 150, 255, 0.5);
             var color = randColorPicker(10, 50, 10, 50, 80, 150, 1);
-        } else if (body.className === 'dark_mode') {
+        } else if (rootElement.style.colorScheme === 'dark') {
             var shadowColor = randColorPicker(0, 50, 0, 100, 0, 50, 0.5);
             var color = randColorPicker(200, 250, 200, 250, 200, 250, 1);
         }
@@ -175,12 +175,20 @@ const navMenuButtonsEffects = () => {
 // changes className by pressing on dark/light mode button
 const toggleLightDarkMode = () => {
 
-    if (body.className === 'light_mode') {
+    /*if (body.className === 'light_mode') {
         body.className = 'dark_mode';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
     } else if (body.className === 'dark_mode') {
         body.className = 'light_mode';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'
+    }*/
+
+    if (rootElement.style.colorScheme === 'dark') {
+        rootElement.style.colorScheme = 'light';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">dark_mode</span></section>'        
+    } else if (rootElement.style.colorScheme === 'light' || rootElement.style.colorScheme === '') {
+        rootElement.style.colorScheme = 'dark';
+        lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
     }
 
     navMenuButtonsEffects();
