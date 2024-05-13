@@ -106,7 +106,7 @@ footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>
 
 // EVENT HANDLERS
 const revealDropdownMenu = event => {
-        event.target.classList.add('dropdown_content_revealed');
+        //event.target.classList.add('dropdown_content_revealed');
         for(let item of dropDownContent) {
             item.classList.add('dropdown_content_revealed');
         }
@@ -117,7 +117,7 @@ const hideDropdownMenu = event => {
     for(let item of dropDownContentRevealed) {
         item.classList.remove('dropdown_content_revealed');
     }
-    console.log(dropDownContentRevealed.values)
+    //console.log(dropDownContentRevealed.values)
 }
 
 const resizeImg = event => {
@@ -190,8 +190,13 @@ const toggleLightDarkMode = () => {
         rootElement.style.colorScheme = 'dark';
         lightDarkModeButton.innerHTML = '<section id="dark_mode_toggler"><span class="material-symbols-outlined">light_mode</span></section>'
     }
-
+    
     navMenuButtonsEffects();
+
+    //const colorSchemeSelectorEl = rootElement.style.colorScheme;
+    //console.log(colorSchemeSelectorEl);
+
+    
 
 }
 

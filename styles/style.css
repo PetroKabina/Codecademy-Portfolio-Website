@@ -239,7 +239,7 @@ main {
 
     background: linear-gradient(180deg,
                 light-dark(rgba(90, 86, 67, 0.5), rgba(90, 86, 67, 0.5)) 50%, 
-                light-dark(rgba(2, 44, 22, 0.75), rgba(2, 117, 60, 0.5)) 100%);
+                light-dark(rgba(195, 233, 214, 0.75), rgba(2, 117, 60, 0.5)) 100%);
     
     
     & a {
@@ -269,6 +269,8 @@ nav menu #breadcrumb {
     font-family: warmin, Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
+    position: relative;
+    min-width: fit-content;
 
     &:not(:first-child)::before {
         content: "→";
@@ -283,6 +285,7 @@ nav menu #breadcrumb {
 
 .dropdown_content_revealed {
     display: block;
+    position: absolute;
 }
 
 #content_box {
@@ -436,7 +439,7 @@ nav menu #breadcrumb {
 }
 
 footer {
-    background-color:  light-dark(  rgba(136, 211, 173, 0.5), 
+    background-color:  light-dark(  rgba(136, 211, 173, 0.75), 
                                     rgba(0, 78, 78, 1));
     font-size: 1.25rem;
     display: grid;
