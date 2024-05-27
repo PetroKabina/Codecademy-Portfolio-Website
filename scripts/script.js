@@ -30,9 +30,9 @@ const tod = document.getElementById("tod"),
     lightDarkModeButton = document.getElementById('dark_mode_toggler'),
     rootElement = document.querySelector(':root'),
     body = document.body,
-    dropDownButton = document.querySelectorAll('a.dropdown_button'),
-    dropDownContent = document.getElementsByClassName('dropdown_content'),
-    dropDownContentRevealed = document.querySelectorAll('dropdown_content_revealed');
+    dropDownButtons = document.querySelectorAll('.dropdown_button'),
+    dropDownContent = document.querySelectorAll('li > .dropdown_content '),
+    dropDownContentShow = document.querySelectorAll('.dropdown_show');
 
 // DATE
 let dayName = undefined;
@@ -105,19 +105,19 @@ setInterval(clockTick, 100);
 footerCopyright.innerHTML = '<b>Copyright © WARMIN GAHOO ' + time().year + '<b>';
 
 // EVENT HANDLERS
-const revealDropdownMenu = event => {
-        //event.target.classList.add('dropdown_content_revealed');
+const showDropdownMenu = event => {
+        //event.target.classList.add('dropdown_show');
         for(let item of dropDownContent) {
-            item.classList.add('dropdown_content_revealed');
+            item.classList.add('dropdown_show');
         }
     }
 
 const hideDropdownMenu = event => {
-    event.target.classList.remove('dropdown_content_revealed');
-    for(let item of dropDownContentRevealed) {
-        item.classList.remove('dropdown_content_revealed');
+    event.target.classList.remove('dropdown_show');
+    for(let item of dropDownContent) {
+        item.classList.remove('dropdown_show');
     }
-    //console.log(dropDownContentRevealed.values)
+    //console.log(dropDownContentShow.values)
 }
 
 const resizeImg = event => {
@@ -200,6 +200,7 @@ const toggleLightDarkMode = () => {
 
 }
 
+// DYNAMIC EFFECTS
 const effectsMainMenuButtons = () => {
     for (let item of mainMenuButtons) {
 
@@ -243,14 +244,21 @@ const effectsMainMenuButtons = () => {
         }
     }
 }
-// dropdown menu hover effect
+// dropdown menu effects
 if (! window.matchMedia("only screen and (max-width: 1000px)").matches) {
-    for (let item of dropDownButton) {
-        item.addEventListener("mouseenter", revealDropdownMenu);
+    for (let item of dropDownButtons) {
+        item.addEventListener("mouseenter", showDropdownMenu);
+        //item.addEventListener("mousedown", hideDropdownMenu);
     }
 
     for(let item of dropDownContent) {
         item.addEventListener("mouseleave", hideDropdownMenu);
+        //item.addEventListener("mouseup", hideDropdownMenu);
+    }
+
+    for(let item of dropDownButtons) {
+        item.addEventListener("mouseleave", hideDropdownMenu);
+        //item.addEventListener("mouseup", hideDropdownMenu);
     }
 }
 

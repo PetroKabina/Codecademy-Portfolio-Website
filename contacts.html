@@ -42,8 +42,9 @@
             <nav>
                 <menu>
                     <ul id="breadcrumb">
-                        <li><a class="menu_item dropdown_button" href="index.html">MAIN<span
-                                    class="material-symbols-outlined">
+                        <li>
+                            <a class="menu_item dropdown_button" href="index.html">MAIN<span
+                                    class="material-symbols-outlined dropdown_button">
                                     arrow_drop_down
                                 </span></a>
                             <div class="dropdown_content">
@@ -53,15 +54,24 @@
                                     <li><a class="menu_item" href="contacts.html">Contact Me</a></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li><a class="menu_item" href="contacts.html">CONTACTS</a></li>
+                            <li>
+                                <a class="menu_item dropdown_button" href="#">CONTACTS<span class="material-symbols-outlined dropdown_button">
+                                    arrow_drop_down
+                                    </span></a>
+                                <div class="dropdown_content">
+                                    <ul>
+                                        <li><a class="menu_item" href="#about-me"></a></li>
+                                        <li><a class="menu_item" href="#contacts-information"></a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         <li><a class="menu_item" href="#">...</a></li>
                         <!--li><a class="menu_item" href=""></a></li-->
                     </ul>
                 </menu>
             </nav>
             <div id="content">
-                <h2>My contacts</h2>
+                <h2 id="about-me">About me</h2>
                 <p>
                     <img class="content_img" src="./images/wg_contacts_photo.webp">
                     I'm Warmin Gahoo, an engineer driven by a passion for innovation and problem-solving.
@@ -73,7 +83,7 @@
                     head-on.</p>
                 <p>Whether it's optimizing processes or spearheading new initiatives, I'm committed to driving success
                     and making a positive impact wherever I go.</p>
-                    <h3><span class="material-symbols-outlined list_icon">contacts_product</span>Contacts information</h3>
+                    <h3 id="contacts-information"><span class="material-symbols-outlined list_icon">contacts_product</span>Contacts information</h3>
                     <section class="card">
                     <div class="card_expand"></div>
                             <div class="card_desc">    

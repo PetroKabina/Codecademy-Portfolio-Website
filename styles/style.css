@@ -288,9 +288,10 @@ nav menu #breadcrumb {
     font-size: 1rem;
 }
 
-.dropdown_content_revealed {
+.dropdown_show {
     display: block;
     position: absolute;
+    height: 500px;
 }
 
 #content_box {
